@@ -1,0 +1,425 @@
+{
+  "navbar": {
+    "logo": "Tomato",
+    "home": "Inicio",
+    "resume": "Resumen",
+    "education": "Educacion",
+    "portfolio": "Portfolio",
+    "experience": "Trayectoria",
+    "blog": "Blog",
+    "footer": "Pie de Página",
+    "findWithMe": "find with me"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Tomas Bascal",
+    "description": "Diseñador y desarrollador web trabajando actualmente en",
+    "company": "TecField SRL",
+    "roleDescription": "Desarrollo, analisis y diseño web",
+    "email": "tom.bascal@gmail.com",
+    "location": "Neuquén - Argentina",
+    "downloadText": "Descarga mi curriculum vitae o ponte en contacto:",
+    "downloadCVSP": "CV ESPAÑOL",
+    "downloadCVEN": "CV INGLÉS",
+    "contactMe": "CONTACTAME"
+  },
+  "contact": {
+    "title": "Contacto:",
+    "sendEmail": "Envíame un Correo:",
+    "or": "- O -",
+    "findMeOnPlatforms": "Buscame en otras plataformas:",
+    "socialMedia": "Social Media",
+    "sendMessage": "Envíame un mensaje",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "send": "Enviar",
+      "emailRequired": "El correo electrónico es requerido.",
+      "emailInvalid": "Ingresa una dirección de correo electrónico válida.",
+      "alsoContact": "Tambien puedes contactarme por aquí:"
+    }
+  },
+  "portfolio": {
+    "subtitle": "Presiona las tarjetas para más detalles",
+    "title": "Portfolio",
+    "gameDevTitle": "Portfolio Game Development",
+    "projects": {
+      "portfolioFotografia": {
+        "category": "Portfolio",
+        "title": "Portfolio Fotografía"
+      },
+      "sistemaInventarios": {
+        "category": "Sistemas",
+        "title": "Sistema de Inventarios"
+      },
+      "dashboardAdmin": {
+        "category": "Dashboard",
+        "title": "Dashboard tipo Admin"
+      },
+      "sistemaPosicionamiento": {
+        "category": "API",
+        "title": "Sistema de posicionamiento regional"
+      },
+      "gestorUsuario": {
+        "category": "GUP",
+        "title": "Gestor Usuario Personal"
+      },
+      "generadorQR": {
+        "category": "QR API",
+        "title": "Generador de QR"
+      },
+      "proyectoCafe": {
+        "category": "RPGMaker",
+        "title": "Proyecto Café"
+      },
+      "islandProject": {
+        "category": "Godot Engine",
+        "title": "Island Project"
+      },
+      "plataformas": {
+        "category": "Godot Engine",
+        "title": "Plataformas"
+      },
+      "tetris": {
+        "category": "Unity",
+        "title": "Tetris"
+      }
+    },
+    "modals": {
+      "dashboardAdmin": {
+        "type": "Dashboard tipo Admin",
+        "title": "Sistema de análisis estadístico",
+        "firstText": "Sistema avanzado con Framework Codeigniter 4 (PHP) estilo Admin, con Dashboard, Perfil, Login, Graficos estadistico, Base de Datos y más. Modelo base para múltiples tipos de sistemas estadísticos y analíticos.",
+        "secondText": "Desarrollado en HTML5, CSS3, JS, PHP, MySQL, Codeigniter 4, Bootstrap 5"
+      },
+      "sistemaPosicionamiento": {
+        "type": "Geoposicionamiento",
+        "title": "Sistema de posicionamiento regional",
+        "firstText": "Sistema creado para una empresa de gestion de locaciones basado en coordenadas geográficas. Mapa interactivo con notificaciones y dashboard tipo admin incluido. Motor en JS y Google Maps API",
+        "secondText": "Desarrollado en HTML5, CSS3, JS, PHP, MySQL, Codeigniter 4, Bootstrap 5, GoogleApi",
+        "noLinkText": "LINKS: No dispone. Sistema diseñado para una empresa particular."
+      },
+      "gestorUsuario": {
+        "type": "Java desktop App",
+        "title": "Gestor Usuario Personal",
+        "firstText": "Se trata de un programa diseñado en Java para almacenar toda la información sobre cuentas, correos, usuarios, contraseñas, y otra información personal.",
+        "secondText": "Pensado en una base de datos local generada en LOG o TXT con cifrado doble para su maxima proteccion. Desarrollado en Java, NetbBeans, JDK, JFrame"
+      },
+      "generadorQR": {
+        "type": "QR API",
+        "title": "Generador de QR",
+        "firstText": "Generador de QR con motor JS, permite crear cualquier tipo de texto a un QR tanto como una url como una frase o cadena de caracteres.",
+        "secondText": "Desarrollado con HTML5, CSS3, JS, QR-web-API"
+      },
+      "proyectoCafe": {
+        "type": "Games",
+        "title": "Proyecto Café",
+        "firstText": "Juego de historia lineal basado en RPGMaker (Motor JavaScript). Proyecto de 6 meses de elaboración, duración del gameplay apróx 1hr a 2hrs.",
+        "secondText": "Desarrollado en RPG Maker Studio, JavaScript, Maker Interface",
+        "noLinkText": "LINKS: No dispone. RPG Maker tiene conflictos para exportar una demo estable."
+      },
+      "islandProject": {
+        "type": "Godot Engine",
+        "title": "Island Project",
+        "firstText": "Proyecto de videojuego en Godot Engine, motor de videojuegos de código abierto. Muestra de proyecto con Blender y Godot Engine con Assets.",
+        "secondText": "Desarrollado en Godot Engine, GDScript, Aseprite"
+      },
+      "plataformas": {
+        "type": "Godot Engine",
+        "title": "Plataformas",
+        "firstText": "Proyecto de videojuego en Godot Engine, motor de videojuegos de código abierto. Juego de plataformas en 2D con mecánicas de salto y plataformeo.",
+        "secondText": "Desarrollado en Godot Engine, GDScript, Aseprite",
+        "noLinkText": "LINKS: No dispone. Proyecto en desarrollo."
+      },
+      "tetrisUnity": {
+        "type": "Unity Engine",
+        "title": "Tetris Unity",
+        "firstText": "Proyecto de videojuego en Unity Engine. Juego de replica del famoso juego de Tetris.",
+        "secondText": "Desarrollado en Unity Engine, C#",
+        "noLinkText": "LINKS: No dispone. Proyecto en desarrollo."
+      },
+      "sistemaInventarios": {
+        "type": "ReactJS / NodeJS",
+        "title": "Sistema de Gestión de Inventarios",
+        "firstText": "Sistema de gestión de inventarios desarrollado en ReactJS, NodeJS y MongoDB. Permite gestionar productos, categorías, usuarios y roles con autenticación y autorización. Integrado con Google Auth para inicio de sesión seguro. Posibilidad de crear categorías, items e inventarios nuevos para una gestión personalizada y completa.",
+        "secondText": "Desarrollado en ReactJS, NodeJS, MongoDB",
+        "noLinkText": "No dispone. Proyecto privado."
+      },
+      "portfolioFotografia": {
+        "type": "EJS / NodeJS",
+        "title": "Portfolio Fotografía con Sistema Interno",
+        "firstText": "Portfolio de fotografía con sistema interno de gestión de contenidos desarrollado en EJS y NodeJS. Permite gestionar imágenes, categorías. Adaptable para PC, Notebooks, Tablets y celulares.",
+        "secondText": "Desarrollado en EJS, NodeJS",
+        "noLinkText": "No dispone. Proyecto privado."
+      }
+    }
+  },
+  "experience": {
+    "subtitle": "Más de 4 años de experiencia",
+    "title": "Mi Experiencia",
+    "viewMore": "VER MÁS",
+    "roleInCompany": "Rol en la empresa:",
+    "myRole": "Mi rol en la empresa:",
+    "jobs": "Trabajos:",
+    "performances": "Desempeños:",
+    "companies": {
+      "tecfield": {
+        "date": "2024-Presente",
+        "title": "Tecfield SRL",
+        "subtitle": "Lider de Proyectos, Desarrollo y  Analisis estadisticos",
+        "description": "Analisis estadistico, gestion de flota, SSA y Medio Ambiente, logica operativa de empresas del rubro de Oil & Gas",
+        "roles": {
+          "projectLeader": {
+            "title": "Lider de Proyectos",
+            "description": "Desarrollo y Gestion de Sistemas para Seguridad y Medio Ambiente, lidero y encabezo personal para los desarrollos nuevos y automatizacion de procesos con formularios, mapas interactivos, reportes estadisticos, validacion y gestion de Documentacion.",
+            "technologies": "Tecnologias como React, NodeJS, GRAPHQL, MongoDB, Docker, AWS, Python, entre otras."
+          },
+          "internalModel": {
+            "title": "Modelo y estructura interna",
+            "description": "Diseño y estructura de los datos a tratar y trabajar, busco implementar de manera sencilla la informacion para que sea moldeable pero solida a la vez."
+          },
+          "statisticalAnalysis": {
+            "title": "Analisis Estadistico",
+            "description": "Graficos y reportes estadisticos gerenciales y profesionales para importacion y exportacion de datos visibles para la muestra o exposicion de informacion."
+          },
+          "formsAndData": {
+            "title": "Formularios e Ingresos de datos",
+            "description": "Creacion de formularios y entradas de datos para la carga de informacion en la base de datos y exposicion en graficos estadisticos. Interconexion de datos entre diferentes modulos para una integracion completa."
+          }
+        }
+      },
+      "blister": {
+        "date": "2021-2024",
+        "title": "Blister Technologies",
+        "subtitle": "Diseño, Lider de proyectos, y Desarrollador Web",
+        "description": "Sistemas estadisticos para grandes empresas del rubro de Oil & Gas",
+        "roles": {
+          "developer": {
+            "title": "Desarrollador",
+            "description": "Actividad Principal. Mi desempeño como programador es el desarrollo de nuevas implementaciones y mantenimiento en la resolución de las necesidades del cliente."
+          },
+          "projectLeader": {
+            "title": "Lider de proyectos",
+            "description": "Hay desarrollos que requieren de varios participantes de los cuales me encargo de coordinar tareas y desarrollar diferentes apartados para luego combinarlos."
+          },
+          "systemManagement": {
+            "title": "Gestión de los sistemas",
+            "description": "Organizo y ordeno el entorno del sistema para mejor experiencia de usuario."
+          },
+          "design": {
+            "title": "Diseño",
+            "description": "Encargado de dar aspecto visual. (Front-End/UI/UX)"
+          },
+          "architecture": {
+            "title": "Arquitectura",
+            "description": "Encargado generar la arquitectura y maquetado de la base de datos, orden de información, crear y consumir APIs. (Back-End/Architecture)."
+          },
+          "support": {
+            "title": "Mantenimiento/Soporte",
+            "description": "Gestión de Fallos o Resolución de Tickets."
+          },
+          "miscellaneous": {
+            "title": "Tareas varias",
+            "description": "Generar Documentacion, Entrenar al personal nuevo, participar en reuniones con los clientes."
+          }
+        }
+      },
+      "freelance": {
+        "date": "2020-2021",
+        "title": "Freelance Developer",
+        "subtitle": "Desarrollador Web y Aplicaciones externas",
+        "description": "Single Page Web Apps, Manejo de datos, diseños propios.",
+        "roles": {
+          "ownClients": {
+            "title": "Clientes propios",
+            "description": "Desarrollos para clientes pequeños que tenian que cubrir alguna necesidad con programas de cálculo o visuales. (Web/Java)"
+          },
+          "personalDevelopment": {
+            "title": "Desarrollo Personal",
+            "description": "Realicé varias páginas propias para poner a prueba tecnologías y patrones de diseño.(MVC/Srcum/Redes de Arboles Binarios)"
+          },
+          "simplePages": {
+            "title": "Páginas SAWP",
+            "description": "Simple App Web Page, páginas simples sin base de datos que sólo muestran información o derivan links."
+          },
+          "activeParticipation": {
+            "title": "Participación activa",
+            "description": "Participación activa dentro de comunidades de desarrollo web, Cursos relacionados al rubro, comunicación con otros informáticos ya graduados o estudiantes."
+          }
+        }
+      },
+      "university": {
+        "date": "2018-Presente",
+        "title": "Universidad",
+        "subtitle": "Lic. Ciencias de la Computacion/Sistemas",
+        "description": "Universidad Nacional Del Comahue Neuquén Capital",
+        "roles": {
+          "databaseDesign": {
+            "title": "Diseño de Base de datos",
+            "description": "Una de las materias troncales más importantes de la carrera nos enseña cómo son las implementaciones de grandes bases de datos y cómo hacer para diseñar una Base de Datos de grandes magnitudes"
+          },
+          "structureImplementation": {
+            "title": "Implementación de Estructuras",
+            "description": "Diseño de Estructuras de datos y Algoritmos complejos como lo son los Arboles AVL(Adelson-Velskii-Landis), Arboles Binarios de Decisión (ABD), Grafos etiquetados, Diseño e implementación de Hash abierto y cerrado."
+          },
+          "oop": {
+            "title": "Programación Orientada a Objetos",
+            "description": "Dentro de POO se nos enseñó la comunicación entre objetos , en el cual desarrolle un algoritmo para SmallTalk - Pharo 9.0 que permite la creación de objetos con atributos y clases según la necesidad.",
+            "link": "Link a"
+          },
+          "coursesAndCompetitions": {
+            "title": "Cursos y competencias",
+            "description": "Participación activa dentro de cursos sobre Scrum, Implementación de patrones, Tutorías y otros como Ajedrez"
+          }
+        }
+      }
+    }
+  },
+  "blog": {
+    "subtitle": "Más sobre mi",
+    "title": "Mi Blog",
+    "readTime": "min lectura",
+    "posts": {
+      "videojuegos": {
+        "category": "Videojuegos",
+        "title": "No sólo es jugar",
+        "readTime": "10"
+      },
+      "impresion3d": {
+        "category": "Microemprendimiento",
+        "title": "Impresion 3D",
+        "readTime": "12"
+      },
+      "vidaSocial": {
+        "category": "vida social",
+        "title": "Informáticos y lo social",
+        "readTime": "5"
+      }
+    },
+    "modals": {
+      "videojuegos": {
+        "title": "No sólo es jugar",
+        "intro": "Además de disfrutar jugar videojuegos admiro mucho su arte, diseño, música y logica de programación. Soy muy curioso en '¿Cómo lograron eso?' e investigo, leo y aprendo al respecto. Busco a los desarrolladores, la empresa y los retos que tuvieron que cruzar para lograr el objetivo final.",
+        "anotherWay": "Es otra forma de jugar",
+        "controlTitle": "Control de todo",
+        "controlDescription": "En la programación de un videojuego hay que tener en cuenta los mismos aspectos que en el cine o incluso más. Si pensamos en una historia y luego la queremos volcar en un juego hay que tener en cuenta el entorno, su estilo, su arte, incluso sus leyes naturales como '¿la fisicas seran iguales a las que nostros tenemos o cambian?' desde su gravedad hasta el formato de su flora y fauna.",
+        "detailTitle": "Hasta el detalle",
+        "detailDescription": "Detalles como si el personaje principal va a tener compañeros o si puede escalar las paredes alteran en gran medida el gameplay del juego, lo que hace que cada detalle tiene que ser previsto o analizar su impacto en el producto final.",
+        "transmitTitle": "Transmitir",
+        "transmitDescription": "Los videojuegos se han vuelto demasiado popular no solo por ser divertidos sino por las historias que cuentan o lo que transmiten. Las sensaciones de ganar, competir, la cooperación, y las sensaciones que puedan transmitir (miedo, risa, adrenalina) son todas obra del director y equipo de desarrollo del juego. Lo que más me gusta del desarrollo de videojuegos es poder trasnmitir emociones o sensaciones al usuario final."
+      },
+      "impresion3d": {
+        "title": "Impresion 3D como emprendimiento",
+        "socialLinks": {
+          "instagram": "Síguenos en Instagram",
+          "instagramSubtitle": "Ver nuestros productos",
+          "onlineStore": "Tienda Online",
+          "onlineStoreSubtitle": "Comprar productos"
+        },
+        "intro": "Buscando algo que me permita salir de la computadora, me divierta y pueda generar ingresos encontre un apartado que me llamo mucho la atencion, la impresion 3D.",
+        "startTitle": "Comienzo del emprendimiento",
+        "startDescription": "Primero me enfoque en realizar articulos para oficina, un nicho que no estaba explotado en mi region, luego realice articulos para el hogar, luego con figuras y juguetes, y por ultimo con articulos personalizados. Todo esto lo hacia en mi tiempo libre, y lo vendia a traves de redes hasta que formalice el emprendimiento.",
+        "websiteTitle": "Pagina Web y Redes sociales",
+        "websiteDescription": "Amigos, familiares y conocidos fueron mis primeros clientes hasta que pude llegar a mas personas a traves de redes sociales. Luego de un tiempo decidi crear una pagina web para mostrar mis productos y que las personas generar un carrito de compras y realizar pedidos con envios a todo el Pais (Argentina).",
+        "experiencesTitle": "Experiencias",
+        "experiencesDescription": "Es mi primer emprendimiento, aprendi mucho sobre gestion, ventas, marketing, atencion al cliente y manejo de redes sociales. Me divierto mucho y me despeja de la programacion que es mi actividad principal."
+      },
+      "vidaSocial": {
+        "title": "Informáticos y lo social",
+        "intro": "Desde hace mucho tiempo que hay un estereotipo del informatico que no sale de casa, que permanece encerrado en su computadora, sin actividades sociales o tener muchas amistades. Con el tiempo eso está cambiando y el informatico pasa a ser un ser mas sociable. Pero ese estereotipo no es mi estilo, soy muy sociable.",
+        "likeTitle": "¿Qué me gusta hacer?",
+        "likeDescription": "Disfruto mucho juntarme con amigos a comer, bailar, pasear, ir al rio, etc. Tambien me gusta disfrutar de un café sólo y tiempo para mí o recorrer malls, shoppings, tiendas de ropa o de tecnología aunque no me compre nada.",
+        "personalityTitle": "Mi forma de ser",
+        "personalityDescription": "Soy bastante sociable y empático con las personas, eso no quiere decir que sea el mejor pero es cierto que ser sociable abre puertas y las relaciones personales las suelo llevar muy bien lo cual me facilita el trato con las personas en oficinas, universidad y amistades."
+      }
+    }
+  },
+  "resume": {
+    "subtitle": "5+ años de trayectoria",
+    "title": "Mi Resumen",
+    "tabs": {
+      "education": "educación",
+      "skills": "Habilidades",
+      "experience": "Experiencia"
+    },
+    "education": {
+      "title": "Educación de Grado",
+      "subtitle": "2018 - Presente",
+      "autodidacta": {
+        "title": "Autodidacta",
+        "subtitle": "2019 - Presente"
+      },
+      "items": {
+        "university": {
+          "title": "Universidad del Comahue Neuquén",
+          "subtitle": "Lic. Ciencias de la Computacion/Sistemas",
+          "description": "Facultad de Informatica - Ubicada en Neuquen Capital (Confluencia), 3er Año de la carrera. Materias realizadas como Estuctura de Datos, Programacion Orientada a Objetos, Probabilidad y Estadística, Diseño de Bases de Datos, etc."
+        },
+        "cambridge": {
+          "title": "Cambridge English",
+          "subtitle": "Instituto de Ingles Cambridge Neuquen Capital",
+          "description": "Aprendizaje del idioma extranjero Ingles"
+        },
+        "bachiller": {
+          "title": "Bachiller en Comunicación y Nuevos Medios",
+          "subtitle": "Secundario Cipolletti Rio Negro CEM N°35",
+          "description": "Egresado de Colegio Secundario CEM N°35 con titulo de Bachiller en Comunicación y Nuevos Medios."
+        },
+        "cursosOnline": {
+          "title": "Cursos Online",
+          "subtitle": "Udemy | Platzi | FreeCode Camp | Angular Docs | otros.",
+          "description": "Cursos online con certificados de - Full Stack Javascript Development - Front End Development - Git basic to advance - y otros."
+        },
+        "cursosUniversitarios": {
+          "title": "Cursos universitarios",
+          "subtitle": "Cursos de Terceros",
+          "description": "Cursos promovidos por la Facultad de Informatica como Metodologías Agiles, Tacticas de desempeño en Algoritmos, Desarrollo e implementacion de Modelos Relacionales"
+        },
+        "youtube": {
+          "title": "YouTube",
+          "subtitle": "Así es YouTube",
+          "description": "Gran parte de mi desarrollo se involucró en 200+ hs de contenido de desarrolladores en YouTube, fue mi gran profesor y tutor en mi formación como entusiasta y desarrollador"
+        }
+      }
+    },
+    "skills": {
+      "implementation": {
+        "subtitle": "Implementación",
+        "title": "Lenguajes y Frameworks"
+      },
+      "development": {
+        "subtitle": "Desarrollo y otros",
+        "title": "Herramientas y más"
+      }
+    },
+    "experienceTab": {
+      "prestaciones": {
+        "title": "Prestaciones y servicios",
+        "tecfieldPeriod": "2024 - Presente",
+        "tecfieldCompany": "TECFIELD",
+        "tecfieldNote": "*Dentro de la empresa Tecfield desarrollo y lidero proyectos, gestiono y defíno estadísticas a las siguientes empresas.",
+        "tecfieldSRL": "TecField SRL",
+        "opsCompany": "O.P.S Oilfield & Production Service",
+        "blisterPeriod": "2020 - 2024",
+        "blisterNote": "*Dentro de la empresa Blister Technologies brinde desarrollos, servicios, atención y prestaciones a las siguientes empresas.",
+        "blisterTech": "Blister Technologies",
+        "shellHSE": "Shell HSE Argentina",
+        "zille": "Zille SRL",
+        "calfrac": "Calfrac Well Service",
+        "ministerio": "Ministerio de Educacion Neuquén",
+        "contreras": "Contreras Hermanos SRL",
+        "prevensur": "Prevensur",
+        "oldelval": "OldelVal Cass",
+        "shellQuality": "Shell Quality Argentina"
+      }
+    }
+  },
+  "footer": {
+    "socialMedia": "Social Media",
+    "resources": "Recursos",
+    "developer": "Desarrollador",
+    "copyright": "© 2024. All rights reserved by",
+    "name": "Tomas Bascal."
+  }
+}
