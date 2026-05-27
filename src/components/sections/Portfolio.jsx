@@ -24,6 +24,9 @@ const allProjects = [
 function ProjectCard({ project, onClick }) {
   const { t } = useTranslation()
   const isGame = project.category === 'games'
+  const cardTitle = t(project.titleKey)
+  const modalType = t(project.modalTypeKey)
+  const description = t(project.modalDescKey)
 
   return (
     <motion.div
@@ -40,7 +43,7 @@ function ProjectCard({ project, onClick }) {
       <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '16/10' }}>
         <img
           src={project.thumbnail}
-          alt={project.modalTitle}
+          alt={cardTitle}
           loading="lazy"
           style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
           onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
@@ -54,7 +57,7 @@ function ProjectCard({ project, onClick }) {
           backdropFilter: 'blur(4px)',
           borderRadius: '2rem', fontSize: '0.7rem', fontWeight: 600, color: 'white',
         }}>
-          {project.modalType}
+          {modalType}
         </span>
         {/* Play overlay for video */}
         {project.video && (
@@ -71,14 +74,14 @@ function ProjectCard({ project, onClick }) {
 
       {/* Card body */}
       <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: 1 }}>
-        <h3 style={{ fontWeight: 700, fontSize: '0.95rem', color: '#f1f5f9' }}>{project.modalTitle}</h3>
+        <h3 style={{ fontWeight: 700, fontSize: '0.95rem', color: '#f1f5f9' }}>{cardTitle}</h3>
         <p style={{ color: '#64748b', fontSize: '0.8rem', lineHeight: 1.5, flex: 1 }}>
-          {project.description?.slice(0, 90)}...
+          {description?.slice(0, 110)}...
         </p>
         {/* Tech tags */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', marginTop: '0.25rem' }}>
-          {project.tech?.slice(0, 3).map(t => (
-            <span key={t} style={{ padding: '0.2rem 0.5rem', background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: '0.25rem', fontSize: '0.7rem', color: '#7c85f5' }}>{t}</span>
+          {project.tech?.slice(0, 3).map(tech => (
+            <span key={tech} style={{ padding: '0.2rem 0.5rem', background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: '0.25rem', fontSize: '0.7rem', color: '#7c85f5' }}>{tech}</span>
           ))}
         </div>
         {/* Links row */}
@@ -105,7 +108,7 @@ export default function Portfolio() {
   const activeFilters = FILTERS.filter(f => f.id === 'all' || allProjects.some(p => p.category === f.id))
 
   return (
-    <section id="portfolio" style={{ padding: '7rem 1.5rem', maxWidth: '1200px', margin: '0 auto' }}>
+    <section id="portfolio" className="section-wrapper">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '3rem' }}>
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', fontWeight: 600, color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>

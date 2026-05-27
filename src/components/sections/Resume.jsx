@@ -97,7 +97,7 @@ export default function Resume() {
   const [activeTab, setActiveTab] = useState('education')
 
   return (
-    <section id="resume" className="section-padding" style={{ maxWidth: '1200px', margin: '0 auto', padding: '7rem 1.5rem' }}>
+    <section id="resume" className="section-wrapper">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '3rem' }}>
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', fontWeight: 600, color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>

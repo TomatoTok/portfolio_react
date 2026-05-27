@@ -163,7 +163,7 @@ export default function Experience() {
   const { t } = useTranslation()
 
   return (
-    <section id="experiences" style={{ padding: '7rem 1.5rem', maxWidth: '1200px', margin: '0 auto' }}>
+    <section id="experiences" className="section-wrapper">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '3rem' }}>
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', fontWeight: 600, color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>
           <Briefcase size={14} /> {t('experience.subtitle')}

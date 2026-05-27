@@ -79,9 +79,9 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="hero-bg" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '5rem' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 1.5rem', width: '100%' }}>
-        <div style={{ display: 'grid', gap: '3rem', alignItems: 'center' }} className="hero-grid">
+    <section id="home" className="hero-bg hero-section">
+      <div className="hero-container">
+        <div className="hero-grid">
 
           {/* ── Left ── */}
           <motion.div initial="hidden" animate="visible" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -204,34 +204,42 @@ export default function Hero() {
               </Dialog.Root>
             </motion.div>
 
-            <motion.div variants={fadeUp} custom={6}>
-              <TagCloud />
-            </motion.div>
           </motion.div>
 
-          {/* ── Right: Photo ── */}
-          <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.25 }} style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ maxWidth: '360px', width: '100%' }}>
-              <div className="hero-image-wrapper" style={{ aspectRatio: '4/5' }}>
-                <img src="/assets/images/slider/example.jpg" alt="Tomas Bascal" loading="eager" />
-              </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '1rem', justifyContent: 'center' }}>
-                {['React', 'Node.js', 'PHP', 'MySQL', 'Cloud'].map((tech) => (
-                  <span key={tech} className="badge">{tech}</span>
-                ))}
-              </div>
+          {/* ── Right: Photo with ambient effects ── */}
+          <div style={{
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+            <div className="hero-photo-wrap">
+              <img
+                src="/assets/images/slider/example.jpg"
+                alt="Tomas Bascal"
+                width="560"
+                height="460"
+                loading="eager"
+                className="hero-photo"
+              />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
+      {/* ── Full-width tag cloud strip ── */}
+      <div className="hero-tag-strip">
+        <TagCloud />
+      </div>
+
       <style>{`
-        @media (min-width: 900px) {
-          .hero-grid { grid-template-columns: 1fr 1fr !important; }
-        }
         @keyframes cursor-blink {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
+        }
+        @keyframes fadeInPhoto {
+          from { opacity: 0; transform: scale(0.94); }
+          to   { opacity: 1; transform: scale(1); }
         }
       `}</style>
     </section>

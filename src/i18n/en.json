@@ -84,6 +84,10 @@
       "tetris": {
         "category": "Unity",
         "title": "Tetris"
+      },
+      "shojiMeguro": {
+        "category": "Fan Page",
+        "title": "Shoji Meguro Fan Page"
       }
     },
     "modals": {
@@ -152,6 +156,12 @@
         "firstText": "Photography portfolio with internal content management system developed in EJS and NodeJS. Allows managing images, categories. Adaptable for PC, Notebooks, Tablets and mobile phones.",
         "secondText": "Developed in EJS, NodeJS",
         "noLinkText": "Not available. Private project."
+      },
+      "shojiMeguro": {
+        "type": "Fan Page",
+        "title": "Shoji Meguro Fan Page",
+        "firstText": "Fan page dedicated to Japanese video game composer Shoji Meguro, featuring his discography, biography and multimedia content.",
+        "secondText": "Developed with HTML5, CSS3, JavaScript"
       }
     }
   },
