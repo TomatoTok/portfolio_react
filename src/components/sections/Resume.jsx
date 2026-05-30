@@ -10,23 +10,13 @@ const TABS = [
   { id: 'experience',labelKey: 'resume.tabs.experience',icon: Building2 },
 ]
 
-const educationItems = [
-  { side: 'formal', items: [
-    { title: 'Universidad del Comahue Neuquén', subtitle: 'B.S. Computer Science/Systems', period: '2018 — Present', desc: 'Data Structures, OOP, Probability & Statistics, Database Design, Agile...' },
-    { title: 'Cambridge English', subtitle: 'Cambridge English Institute Neuquén Capital', period: '2017', desc: 'English as a foreign language' },
-    { title: 'Bachelor en Comunicación', subtitle: 'CEM N°35 Cipolletti, Río Negro', period: '2012 — 2017', desc: 'Graduated with a Bachelor\'s degree in Communication and New Media.' },
-  ]},
-  { side: 'selftaught', items: [
-    { title: 'Online Courses', subtitle: 'Udemy · Platzi · FreeCodeCamp', period: '2019 — Present', desc: 'Full Stack JavaScript, Front End Dev, Git, and more.' },
-    { title: 'University Courses', subtitle: 'Agile, Algorithm Performance, Relational Models', period: '2019 — Present', desc: 'Promoted by the Computer Science Faculty.' },
-    { title: 'YouTube', subtitle: '200+ hours of developer content', period: '2019 — Present', desc: 'My great teacher and tutor in my formation as an enthusiast and developer.' },
-  ]},
-]
 
 const colorMap = {
-  indigo: { bg: 'rgba(99,102,241,0.1)', border: 'rgba(99,102,241,0.25)', text: '#a5b4fc', dot: '#6366f1' },
-  purple: { bg: 'rgba(168,85,247,0.1)', border: 'rgba(168,85,247,0.25)', text: '#d8b4fe', dot: '#a855f7' },
-  cyan:   { bg: 'rgba(6,182,212,0.1)',  border: 'rgba(6,182,212,0.25)',  text: '#67e8f9', dot: '#06b6d4' },
+  indigo:  { bg: 'rgba(99,102,241,0.1)',  border: 'rgba(99,102,241,0.25)',  text: '#a5b4fc', dot: '#6366f1' },
+  purple:  { bg: 'rgba(168,85,247,0.1)',  border: 'rgba(168,85,247,0.25)',  text: '#d8b4fe', dot: '#a855f7' },
+  cyan:    { bg: 'rgba(6,182,212,0.1)',   border: 'rgba(6,182,212,0.25)',   text: '#67e8f9', dot: '#06b6d4' },
+  orange:  { bg: 'rgba(251,146,60,0.1)',  border: 'rgba(251,146,60,0.25)',  text: '#fdba74', dot: '#f97316' },
+  emerald: { bg: 'rgba(52,211,153,0.1)',  border: 'rgba(52,211,153,0.25)', text: '#6ee7b7', dot: '#10b981' },
 }
 
 function TimelineItem({ item, delay = 0 }) {
@@ -54,20 +44,42 @@ function TimelineItem({ item, delay = 0 }) {
   )
 }
 
-function SkillBadge({ skill }) {
+function SkillBadge({ skill, dotColor = '#6366f1' }) {
+  const isColored = skill.colored === true
+  const iconBg    = isColored ? 'rgba(255,255,255,0.06)' : `${dotColor}22`
+  const iconBorder= isColored ? 'rgba(255,255,255,0.10)' : `${dotColor}44`
+  const imgFilter = isColored ? 'none' : 'brightness(0) invert(1)'
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
+      whileHover={{ y: -2, transition: { duration: 0.15 } }}
       className="glass-card"
-      style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', padding: '0.625rem 0.875rem', cursor: 'default' }}
+      style={{
+        display: 'flex', alignItems: 'center', gap: '0.625rem',
+        padding: '0.5rem 0.875rem 0.5rem 0.5rem',
+        cursor: 'default',
+      }}
     >
-      {skill.icon ? (
-        <img src={skill.icon} alt={skill.name} style={{ width: '1.25rem', height: '1.25rem', objectFit: 'contain' }} />
-      ) : (
-        <Cpu size={16} color="#6366f1" />
-      )}
+      <div style={{
+        width: '2rem', height: '2rem', flexShrink: 0,
+        background: iconBg,
+        border: `1px solid ${iconBorder}`,
+        borderRadius: '0.5rem',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}>
+        {skill.icon ? (
+          <img
+            src={skill.icon}
+            alt={skill.name}
+            style={{ width: '1.1rem', height: '1.1rem', objectFit: 'contain', filter: imgFilter }}
+          />
+        ) : (
+          <Cpu size={13} color={dotColor} />
+        )}
+      </div>
       <span style={{ fontSize: '0.825rem', fontWeight: 500, color: '#cbd5e1' }}>{skill.name}</span>
     </motion.div>
   )
@@ -80,14 +92,14 @@ function CompanyLogo({ client }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className="glass-card"
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', padding: '1rem' }}
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.625rem', padding: '1.25rem' }}
     >
       <img
         src={client.logo}
         alt={client.name}
-        style={{ width: '3.5rem', height: '3.5rem', objectFit: 'contain', filter: 'brightness(0.9)' }}
+        style={{ width: '5.5rem', height: '5.5rem', objectFit: 'contain', filter: 'brightness(0.9)' }}
       />
-      <span style={{ fontSize: '0.7rem', color: '#475569', textAlign: 'center', lineHeight: 1.3 }}>{client.name}</span>
+      <span style={{ fontSize: '0.72rem', color: '#475569', textAlign: 'center', lineHeight: 1.3 }}>{client.name}</span>
     </motion.div>
   )
 }
@@ -95,6 +107,19 @@ function CompanyLogo({ client }) {
 export default function Resume() {
   const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState('education')
+
+  const educationItems = [
+    { side: 'formal', items: [
+      { title: t('resume.education.items.university.title'), subtitle: t('resume.education.items.university.subtitle'), period: '2018 — ' + t('resume.present'), desc: t('resume.education.items.university.description') },
+      { title: t('resume.education.items.cambridge.title'), subtitle: t('resume.education.items.cambridge.subtitle'), period: '2017', desc: t('resume.education.items.cambridge.description') },
+      { title: t('resume.education.items.bachiller.title'), subtitle: t('resume.education.items.bachiller.subtitle'), period: '2012 — 2017', desc: t('resume.education.items.bachiller.description') },
+    ]},
+    { side: 'selftaught', items: [
+      { title: t('resume.education.items.cursosOnline.title'), subtitle: t('resume.education.items.cursosOnline.subtitle'), period: '2019 — ' + t('resume.present'), desc: t('resume.education.items.cursosOnline.description') },
+      { title: t('resume.education.items.cursosUniversitarios.title'), subtitle: t('resume.education.items.cursosUniversitarios.subtitle'), period: '2019 — ' + t('resume.present'), desc: t('resume.education.items.cursosUniversitarios.description') },
+      { title: t('resume.education.items.youtube.title'), subtitle: t('resume.education.items.youtube.subtitle'), period: '2019 — ' + t('resume.present'), desc: t('resume.education.items.youtube.description') },
+    ]},
+  ]
 
   return (
     <section id="resume" className="section-wrapper">
@@ -163,7 +188,7 @@ export default function Resume() {
                       </h3>
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem' }}>
-                      {group.skills.map((skill) => <SkillBadge key={skill.name} skill={skill} />)}
+                      {group.skills.map((skill) => <SkillBadge key={skill.name} skill={skill} dotColor={c.dot} />)}
                     </div>
                   </div>
                 )
@@ -173,31 +198,31 @@ export default function Resume() {
         )}
 
         {activeTab === 'experience' && (
-          <motion.div key="experience" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }}>
+          <motion.div key="experience" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {/* Tecfield */}
-            <div style={{ marginBottom: '2.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+            <div className="glass-card" style={{ padding: '1.75rem', width: '100%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                 <span className="badge">{t('resume.experienceTab.prestaciones.tecfieldPeriod')}</span>
-                <span style={{ fontWeight: 700, color: '#f1f5f9' }}>{t('resume.experienceTab.prestaciones.tecfieldCompany')}</span>
+                <span style={{ fontWeight: 700, fontSize: '1.05rem', color: '#f1f5f9' }}>{t('resume.experienceTab.prestaciones.tecfieldCompany')}</span>
               </div>
-              <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '1rem', fontStyle: 'italic' }}>
+              <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '1.5rem', fontStyle: 'italic' }}>
                 {t('resume.experienceTab.prestaciones.tecfieldNote')}
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '0.75rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '0.875rem' }}>
                 {tecfieldClients.map((c) => <CompanyLogo key={c.name} client={c} />)}
               </div>
             </div>
 
             {/* Blister */}
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+            <div className="glass-card" style={{ padding: '1.75rem', width: '100%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                 <span className="badge badge-purple">{t('resume.experienceTab.prestaciones.blisterPeriod')}</span>
-                <span style={{ fontWeight: 700, color: '#f1f5f9' }}>{t('resume.experienceTab.prestaciones.blisterTech')}</span>
+                <span style={{ fontWeight: 700, fontSize: '1.05rem', color: '#f1f5f9' }}>{t('resume.experienceTab.prestaciones.blisterTech')}</span>
               </div>
-              <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '1rem', fontStyle: 'italic' }}>
+              <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '1.5rem', fontStyle: 'italic' }}>
                 {t('resume.experienceTab.prestaciones.blisterNote')}
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '0.75rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '0.875rem' }}>
                 {blisterClients.map((c) => <CompanyLogo key={c.name} client={c} />)}
               </div>
             </div>

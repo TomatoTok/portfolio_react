@@ -44,6 +44,11 @@
     "subtitle": "Press the cards for more details",
     "title": "Portfolio",
     "gameDevTitle": "Game Development Portfolio",
+    "filters": {
+      "all": "All",
+      "web": "Web",
+      "games": "Games"
+    },
     "projects": {
       "portfolioFotografia": {
         "category": "Portfolio",
@@ -348,6 +353,7 @@
   "resume": {
     "subtitle": "5+ years of experience",
     "title": "My Resume",
+    "present": "Present",
     "tabs": {
       "education": "education",
       "skills": "Skills",

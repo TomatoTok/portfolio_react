@@ -207,7 +207,7 @@ export default function Hero() {
           </motion.div>
 
           {/* ── Right: Photo with ambient effects ── */}
-          <div style={{
+          <div className="hero-photo-col" style={{
             width: '100%',
             display: 'flex',
             alignItems: 'center',

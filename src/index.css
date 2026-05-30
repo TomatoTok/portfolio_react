@@ -512,7 +512,7 @@ html, body {
 
 @media (min-width: 768px) {
   .hero-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 3rem;
   }
 }
@@ -521,7 +521,7 @@ html, body {
 .hero-photo-wrap {
   position: relative;
   width: 100%;
-  max-width: 560px;
+  max-width: 660px;
   margin: 0 auto;
   animation: fadeInPhoto 0.9s ease 0.25s both, floatY 6s ease-in-out 1.2s infinite;
 }
@@ -601,7 +601,8 @@ html, body {
 }
 
 @media (max-width: 767px) {
-  .hero-photo-wrap { max-width: 340px; }
+  .hero-photo-col { order: -1; }
+  .hero-photo-wrap { max-width: 380px; }
   .hero-photo-wrap::before { inset: -20px; }
   .hero-photo-wrap::after { width: 50px; height: 50px; top: -10px; right: -10px; }
   .hero-section { padding-top: 6rem; }

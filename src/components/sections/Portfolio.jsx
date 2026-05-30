@@ -1,18 +1,12 @@
 import { useState, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Layers, ExternalLink, Code2, Play, Gamepad2, Globe } from 'lucide-react'
+import { Layers, ExternalLink, Code2, Play } from 'lucide-react'
 import ProjectModal from '../portfolio/ProjectModal'
 import VideoModal from '../portfolio/VideoModal'
 import { webProjects, gameProjects, cloudProjects, aiProjects } from '../../data/portfolio-data'
 
-const FILTERS = [
-  { id: 'all',   label: 'All',   icon: Layers },
-  { id: 'web',   label: 'Web',   icon: Globe },
-  { id: 'games', label: 'Games', icon: Gamepad2 },
-  { id: 'cloud', label: 'Cloud', icon: null },
-  { id: 'ai',    label: 'AI',    icon: null },
-]
+const FILTER_IDS = ['all', 'web', 'games']
 
 const allProjects = [
   ...webProjects.map(p => ({ ...p, category: 'web' })),
@@ -97,7 +91,7 @@ function ProjectCard({ project, onClick }) {
 
 export default function Portfolio() {
   const { t } = useTranslation()
-  const [activeFilter, setActiveFilter] = useState('all')
+  const [activeFilter, setActiveFilter] = useState('web')
   const [openProject, setOpenProject] = useState(null)
 
   const filtered = useMemo(() =>
@@ -105,7 +99,7 @@ export default function Portfolio() {
     [activeFilter]
   )
 
-  const activeFilters = FILTERS.filter(f => f.id === 'all' || allProjects.some(p => p.category === f.id))
+  const activeFilters = FILTER_IDS.filter(id => id === 'all' || allProjects.some(p => p.category === id))
 
   return (
     <section id="portfolio" className="section-wrapper">
@@ -120,13 +114,13 @@ export default function Portfolio() {
 
       {/* Filter buttons */}
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
-        {activeFilters.map(({ id, label }) => (
+        {activeFilters.map((id) => (
           <button
             key={id}
             onClick={() => setActiveFilter(id)}
             className={`filter-btn${activeFilter === id ? ' active' : ''}`}
           >
-            {label}
+            {t(`portfolio.filters.${id}`)}
           </button>
         ))}
       </motion.div>

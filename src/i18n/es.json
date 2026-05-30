@@ -44,6 +44,11 @@
     "subtitle": "Presiona las tarjetas para más detalles",
     "title": "Portfolio",
     "gameDevTitle": "Portfolio Game Development",
+    "filters": {
+      "all": "Todos",
+      "web": "Web",
+      "games": "Juegos"
+    },
     "projects": {
       "portfolioFotografia": {
         "category": "Portfolio",
@@ -348,6 +353,7 @@
   "resume": {
     "subtitle": "5+ años de trayectoria",
     "title": "Mi Resumen",
+    "present": "Presente",
     "tabs": {
       "education": "educación",
       "skills": "Habilidades",
@@ -408,10 +414,10 @@
         "title": "Prestaciones y servicios",
         "tecfieldPeriod": "2024 - Presente",
         "tecfieldCompany": "TECFIELD",
-        "tecfieldNote": "*Dentro de la empresa Tecfield desarrollo y lidero proyectos, gestiono y defíno estadísticas a las siguientes empresas.",
+        "tecfieldNote": "*Dentro de la empresa Tecfield desarrollo y lidero personal, proyectos, gestiono y defíno sistemas y estadísticas a las siguientes empresas.",
         "tecfieldSRL": "TecField SRL",
         "opsCompany": "O.P.S Oilfield & Production Service",
-        "blisterPeriod": "2020 - 2024",
+        "blisterPeriod": "2021 - 2024",
         "blisterNote": "*Dentro de la empresa Blister Technologies brinde desarrollos, servicios, atención y prestaciones a las siguientes empresas.",
         "blisterTech": "Blister Technologies",
         "shellHSE": "Shell HSE Argentina",
