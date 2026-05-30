@@ -1,13 +1,5 @@
 # Instrucciones globales del proyecto
-
-## Dominio
-Proyecto de **gestión de flota y seguridad vial**. Todo cambio debe respetar las normativas de:
-- Seguridad vial → `docs/contexto-seguridad-vial.md`
-- SSA → `docs/contexto-ssa.md`
-- Ambiente → `docs/contexto-ambiente.md`
-
-Cargá el contexto de dominio que corresponda **antes** de proponer o ejecutar cambios.
-
+Estas instrucciones definen las reglas y el flujo de trabajo para abordar mis necesidades de desarrollo. Son aplicables a todos los archivos del proyecto.
 ## Skills disponibles y cuándo usarlas
 Usá estas skills automáticamente según la situación. No esperes que te las invoque manualmente.
 
