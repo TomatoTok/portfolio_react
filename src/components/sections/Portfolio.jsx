@@ -6,7 +6,8 @@ import ProjectModal from '../portfolio/ProjectModal'
 import VideoModal from '../portfolio/VideoModal'
 import { webProjects, gameProjects, cloudProjects, aiProjects } from '../../data/portfolio-data'
 
-const FILTER_IDS = ['all', 'web', 'games']
+const FILTER_IDS = ['all', 'web', 'games', 'ai']
+const CATEGORY_ORDER = ['ai', 'web', 'games']
 
 const allProjects = [
   ...webProjects.map(p => ({ ...p, category: 'web' })),
@@ -18,6 +19,7 @@ const allProjects = [
 function ProjectCard({ project, onClick }) {
   const { t } = useTranslation()
   const isGame = project.category === 'games'
+  const isAI   = project.category === 'ai'
   const cardTitle = t(project.titleKey)
   const modalType = t(project.modalTypeKey)
   const description = t(project.modalDescKey)
@@ -47,7 +49,7 @@ function ProjectCard({ project, onClick }) {
         <span style={{
           position: 'absolute', top: '0.75rem', left: '0.75rem',
           padding: '0.25rem 0.625rem',
-          background: isGame ? 'rgba(6,182,212,0.85)' : 'rgba(99,102,241,0.85)',
+          background: isGame ? 'rgba(6,182,212,0.85)' : isAI ? 'rgba(16,185,129,0.85)' : 'rgba(99,102,241,0.85)',
           backdropFilter: 'blur(4px)',
           borderRadius: '2rem', fontSize: '0.7rem', fontWeight: 600, color: 'white',
         }}>
@@ -99,7 +101,15 @@ export default function Portfolio() {
     [activeFilter]
   )
 
-  const activeFilters = FILTER_IDS.filter(id => id === 'all' || allProjects.some(p => p.category === id))
+  const grouped = useMemo(() =>
+    CATEGORY_ORDER.map(cat => ({
+      cat,
+      items: allProjects.filter(p => p.category === cat),
+    })).filter(g => g.items.length > 0),
+    []
+  )
+
+  const activeFilters = FILTER_IDS.filter(id => id === 'all' || id === 'ai' || allProjects.some(p => p.category === id))
 
   return (
     <section id="portfolio" className="section-wrapper">
@@ -126,19 +136,41 @@ export default function Portfolio() {
       </motion.div>
 
       {/* Grid */}
-      <motion.div layout style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
-        <AnimatePresence mode="popLayout">
-          {filtered.map((project) => (
-            <ProjectCard key={project.id} project={project} onClick={() => setOpenProject(project)} />
-          ))}
-        </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {activeFilter === 'all' ? (
+          <motion.div key="all-grouped" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+            {grouped.map(({ cat, items }) => (
+              <div key={cat}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                  <span style={{ width: 3, height: '1rem', borderRadius: 2, background: cat === 'ai' ? '#10b981' : cat === 'games' ? '#06b6d4' : '#6366f1' }} />
+                  <h3 style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: cat === 'ai' ? '#6ee7b7' : cat === 'games' ? '#67e8f9' : '#a5b4fc' }}>
+                    {t(`portfolio.filters.${cat}`)}
+                  </h3>
+                </div>
+                <motion.div layout style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
+                  {items.map((project, i) => (
+                    <ProjectCard key={project.id} project={project} onClick={() => setOpenProject(project)} />
+                  ))}
+                </motion.div>
+              </div>
+            ))}
+          </motion.div>
+        ) : (
+          <motion.div key={activeFilter} layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
+            <AnimatePresence mode="popLayout">
+              {filtered.map((project) => (
+                <ProjectCard key={project.id} project={project} onClick={() => setOpenProject(project)} />
+              ))}
+            </AnimatePresence>
 
-        {filtered.length === 0 && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ gridColumn: '1/-1', textAlign: 'center', padding: '4rem', color: '#475569' }}>
-            <p style={{ fontSize: '1rem' }}>No projects in this category yet — coming soon! 🚀</p>
+            {filtered.length === 0 && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ gridColumn: '1/-1', textAlign: 'center', padding: '4rem', color: '#475569' }}>
+                <p style={{ fontSize: '1rem' }}>No projects in this category yet — coming soon! 🚀</p>
+              </motion.div>
+            )}
           </motion.div>
         )}
-      </motion.div>
+      </AnimatePresence>
 
       {/* Modals */}
       {allProjects.map(project =>

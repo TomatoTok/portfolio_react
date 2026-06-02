@@ -47,7 +47,8 @@
     "filters": {
       "all": "All",
       "web": "Web",
-      "games": "Games"
+      "games": "Games",
+      "ai": "AI & LLM"
     },
     "projects": {
       "portfolioFotografia": {
@@ -93,6 +94,10 @@
       "shojiMeguro": {
         "category": "Fan Page",
         "title": "Shoji Meguro Fan Page"
+      },
+      "botFinanciero": {
+        "category": "AI & LLM",
+        "title": "AI Financial Bot (Telegram)"
       }
     },
     "modals": {
@@ -167,6 +172,12 @@
         "title": "Shoji Meguro Fan Page",
         "firstText": "Fan page dedicated to Japanese video game composer Shoji Meguro, featuring his discography, biography and multimedia content.",
         "secondText": "Developed with HTML5, CSS3, JavaScript"
+      },
+      "botFinanciero": {
+        "type": "Python / Telegram Bot",
+        "title": "AI Financial Bot (Telegram)",
+        "firstText": "Personal Telegram bot in daily use that receives photos, PDFs or plain text of payment receipts. Automatically extracts amount, merchant, category and date through a hybrid architecture (Google Vision OCR + Claude AI), cutting costs by 50% compared to pure LLM approaches. Stores everything asynchronously in MongoDB Atlas and delivers: category summaries, trend statistics, financial health score, personalized recommendations and step-by-step plans to reach savings or investment goals. Deployed with Docker and Railway.",
+        "secondText": "Built with Python · python-telegram-bot · Claude AI (Anthropic) · Google Vision API · MongoDB Motor (async) · Docker · Railway · pytest"
       }
     }
   },
@@ -367,10 +378,15 @@
         "subtitle": "2019 - Present"
       },
       "items": {
+        "ifes": {
+          "title": "IFES Neuquén",
+          "subtitle": "Systems Analyst",
+          "description": "IFES Faculty located in Neuquen Capital with subjects such as LLM & AI Trends, Networks and Interconnections, Advanced Programming, etc."
+        },
         "university": {
           "title": "Universidad del Comahue Neuquén",
           "subtitle": "B.S. Computer Science/Systems",
-          "description": "Computer Science Faculty - Located in Neuquen Capital (Confluencia), 3rd year of the program. Completed courses such as Data Structures, Object-Oriented Programming, Probability and Statistics, Database Design, etc."
+          "description": "Computer Science Faculty - Located in Neuquen Capital (Confluencia), completed up to the 3rd year of the program. Courses such as Data Structures, Object-Oriented Programming, Probability and Statistics, Database Design, etc."
         },
         "cambridge": {
           "title": "Cambridge English",
@@ -383,19 +399,19 @@
           "description": "Graduated from CEM N°35 High School with a Bachelor's degree in Communication and New Media."
         },
         "cursosOnline": {
-          "title": "Online Courses",
-          "subtitle": "Udemy | Platzi | FreeCode Camp | Angular Docs | others.",
-          "description": "Online courses with certificates in - Full Stack Javascript Development - Front End Development - Git basic to advance - and others."
+          "title": "Certifications & Courses",
+          "subtitle": "AWS | Google Cloud | Udemy | Platzi | FreeCode Camp",
+          "description": "Certifications in AWS Cloud Practitioner, Google Cloud fundamentals, cloud solutions architecture, Full Stack JavaScript, advanced Git, and other officially certified courses."
         },
         "cursosUniversitarios": {
           "title": "University Courses",
           "subtitle": "Third-party Courses",
           "description": "Courses promoted by the Computer Science Faculty such as Agile Methodologies, Algorithm Performance Tactics, Development and Implementation of Relational Models"
         },
-        "youtube": {
-          "title": "YouTube",
-          "subtitle": "That's YouTube",
-          "description": "Much of my development involved 200+ hours of developer content on YouTube, which was my great teacher and tutor in my formation as an enthusiast and developer"
+        "personalProjects": {
+          "title": "Personal Projects",
+          "subtitle": "AI · Computer Vision · Business Management",
+          "description": "Development of personal projects: systems using artificial intelligence and LLMs, facial recognition and scanning with computer vision, business management platforms, and other real-world production solutions."
         }
       }
     },

@@ -110,14 +110,14 @@ export default function Resume() {
 
   const educationItems = [
     { side: 'formal', items: [
-      { title: t('resume.education.items.university.title'), subtitle: t('resume.education.items.university.subtitle'), period: '2018 — ' + t('resume.present'), desc: t('resume.education.items.university.description') },
-      { title: t('resume.education.items.cambridge.title'), subtitle: t('resume.education.items.cambridge.subtitle'), period: '2017', desc: t('resume.education.items.cambridge.description') },
-      { title: t('resume.education.items.bachiller.title'), subtitle: t('resume.education.items.bachiller.subtitle'), period: '2012 — 2017', desc: t('resume.education.items.bachiller.description') },
+      { title: t('resume.education.items.ifes.title'), subtitle: t('resume.education.items.ifes.subtitle'), period: '2026 — ' + t('resume.present'), desc: t('resume.education.items.ifes.description') },
+      { title: t('resume.education.items.university.title'), subtitle: t('resume.education.items.university.subtitle'), period: '2018 — 2023', desc: t('resume.education.items.university.description') },
+      { title: t('resume.education.items.cambridge.title'), subtitle: t('resume.education.items.cambridge.subtitle'), period: '2023', desc: t('resume.education.items.cambridge.description') },
     ]},
     { side: 'selftaught', items: [
       { title: t('resume.education.items.cursosOnline.title'), subtitle: t('resume.education.items.cursosOnline.subtitle'), period: '2019 — ' + t('resume.present'), desc: t('resume.education.items.cursosOnline.description') },
       { title: t('resume.education.items.cursosUniversitarios.title'), subtitle: t('resume.education.items.cursosUniversitarios.subtitle'), period: '2019 — ' + t('resume.present'), desc: t('resume.education.items.cursosUniversitarios.description') },
-      { title: t('resume.education.items.youtube.title'), subtitle: t('resume.education.items.youtube.subtitle'), period: '2019 — ' + t('resume.present'), desc: t('resume.education.items.youtube.description') },
+      { title: t('resume.education.items.personalProjects.title'), subtitle: t('resume.education.items.personalProjects.subtitle'), period: '2020 — ' + t('resume.present'), desc: t('resume.education.items.personalProjects.description') },
     ]},
   ]
 

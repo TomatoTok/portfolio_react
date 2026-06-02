@@ -193,10 +193,33 @@ export const gameProjects = [
 ]
 
 // ─────────────────────────────────────────
-// CLOUD & AI PROJECTS (future-ready, empty for now)
+// CLOUD & AI PROJECTS
 // ─────────────────────────────────────────
 export const cloudProjects = []
-export const aiProjects = []
+
+export const aiProjects = [
+  {
+    id: 'ModalAI01',
+    titleKey:      'portfolio.projects.botFinanciero.title',
+    categoryKey:   'portfolio.projects.botFinanciero.category',
+    modalTypeKey:  'portfolio.modals.botFinanciero.type',
+    modalTitleKey: 'portfolio.modals.botFinanciero.title',
+    modalDescKey:  'portfolio.modals.botFinanciero.firstText',
+    noLinkTextKey: null,
+    thumbnail: '/assets/images/portfolio/project12/img2.png',
+    type: 'image',
+    video: null,
+    tech: ['Python', 'Claude AI', 'Google Vision API', 'MongoDB', 'Docker', 'Railway', 'pytest'],
+    github: null,
+    demo: null,
+    images: [
+      '/assets/images/portfolio/project12/img1.png',
+      '/assets/images/portfolio/project12/img2.png',
+      '/assets/images/portfolio/project12/img3.png',
+      '/assets/images/portfolio/project12/img4.png',
+    ],
+  },
+]
 
 // ─────────────────────────────────────────
 // BLOG POSTS

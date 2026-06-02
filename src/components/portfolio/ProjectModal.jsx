@@ -1,12 +1,13 @@
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import * as Dialog from '@radix-ui/react-dialog'
-import { X, Code2, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
+import { X, Code2, ExternalLink, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react'
 import useEmblaCarousel from 'embla-carousel-react'
 
 export default function ProjectModal({ project, open, onOpenChange }) {
   const { t } = useTranslation()
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [lightboxSrc, setLightboxSrc] = useState(null)
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
   const hasImages = project.images?.length > 0
@@ -44,8 +45,22 @@ export default function ProjectModal({ project, open, onOpenChange }) {
               <div className="embla" ref={emblaRef}>
                 <div className="embla__container">
                   {[project.thumbnail, ...project.images].filter(Boolean).map((src, i) => (
-                    <div className="embla__slide" key={i}>
-                      <img src={src} alt={`${modalTitle} ${i}`} style={{ width: '100%', borderRadius: '0.75rem', maxHeight: '380px', objectFit: 'cover' }} loading="lazy" />
+                    <div className="embla__slide" key={i} style={{ position: 'relative' }}>
+                      <div style={{ background: 'rgba(0,0,0,0.35)', borderRadius: '0.75rem', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', maxHeight: '420px' }}>
+                        <img
+                          src={src}
+                          alt={`${modalTitle} ${i}`}
+                          style={{ maxWidth: '100%', maxHeight: '420px', objectFit: 'contain', borderRadius: '0.75rem', cursor: 'zoom-in' }}
+                          loading="lazy"
+                          onClick={() => setLightboxSrc(src)}
+                        />
+                      </div>
+                      <button
+                        onClick={() => setLightboxSrc(src)}
+                        style={{ position: 'absolute', bottom: '0.5rem', right: '0.5rem', background: 'rgba(0,0,0,0.55)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '0.4rem', padding: '0.3rem 0.5rem', cursor: 'pointer', color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.7rem', backdropFilter: 'blur(4px)' }}
+                      >
+                        <Maximize2 size={12} /> Ver completo
+                      </button>
                     </div>
                   ))}
                 </div>
@@ -59,7 +74,22 @@ export default function ProjectModal({ project, open, onOpenChange }) {
               </div>
             </div>
           ) : (
-            <img src={project.thumbnail} alt={modalTitle} style={{ width: '100%', borderRadius: '0.75rem', marginBottom: '1.5rem', maxHeight: '320px', objectFit: 'cover' }} loading="lazy" />
+            <div style={{ background: 'rgba(0,0,0,0.35)', borderRadius: '0.75rem', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', maxHeight: '360px', marginBottom: '1.5rem', cursor: 'zoom-in' }} onClick={() => setLightboxSrc(project.thumbnail)}>
+              <img src={project.thumbnail} alt={modalTitle} style={{ maxWidth: '100%', maxHeight: '360px', objectFit: 'contain', borderRadius: '0.75rem' }} loading="lazy" />
+            </div>
+          )}
+
+          {/* Lightbox */}
+          {lightboxSrc && (
+            <div
+              onClick={() => setLightboxSrc(null)}
+              style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(0,0,0,0.92)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem', cursor: 'zoom-out' }}
+            >
+              <button onClick={() => setLightboxSrc(null)} style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '0.5rem', padding: '0.5rem', cursor: 'pointer', color: '#e2e8f0', display: 'flex' }}>
+                <X size={20} />
+              </button>
+              <img src={lightboxSrc} alt="full" style={{ maxWidth: '100%', maxHeight: '90vh', objectFit: 'contain', borderRadius: '0.5rem' }} onClick={e => e.stopPropagation()} />
+            </div>
           )}
 
           {/* Description */}

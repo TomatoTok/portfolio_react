@@ -47,7 +47,8 @@
     "filters": {
       "all": "Todos",
       "web": "Web",
-      "games": "Juegos"
+      "games": "Juegos",
+      "ai": "IA & LLM"
     },
     "projects": {
       "portfolioFotografia": {
@@ -93,6 +94,10 @@
       "shojiMeguro": {
         "category": "Fan Page",
         "title": "Fan Page Shoji Meguro"
+      },
+      "botFinanciero": {
+        "category": "IA & LLM",
+        "title": "Bot Financiero con IA (Telegram)"
       }
     },
     "modals": {
@@ -167,6 +172,12 @@
         "title": "Fan Page Shoji Meguro",
         "firstText": "Fan page dedicada al compositor japonés de videojuegos Shoji Meguro, con su discografía, biografía y contenido multimedia.",
         "secondText": "Desarrollado en HTML5, CSS3, JavaScript"
+      },
+      "botFinanciero": {
+        "type": "Python / Telegram Bot",
+        "title": "Bot Financiero con IA (Telegram)",
+        "firstText": "Bot de Telegram personal en uso diario que recibe fotos, PDFs o texto de comprobantes de pago. Extrae automáticamente el monto, comercio, categoría y fecha mediante una arquitectura híbrida (Google Vision OCR + Claude AI), reduciendo costos un 50% frente a modelos puramente LLM. Almacena todo de forma asíncrona en MongoDB Atlas y entrega: resúmenes por categoría, estadísticas con tendencias, puntuación de salud financiera, recomendaciones personalizadas y planes paso a paso para alcanzar metas de ahorro o inversión. Desplegado con Docker y Railway.",
+        "secondText": "Desarrollado con Python · python-telegram-bot · Claude AI (Anthropic) · Google Vision API · MongoDB Motor (async) · Docker · Railway · pytest"
       }
     }
   },
@@ -355,7 +366,7 @@
     "title": "Mi Resumen",
     "present": "Presente",
     "tabs": {
-      "education": "educación",
+      "education": "Educación",
       "skills": "Habilidades",
       "experience": "Experiencia"
     },
@@ -367,10 +378,15 @@
         "subtitle": "2019 - Presente"
       },
       "items": {
+        "ifes": {
+          "title": "IFES Neuquén",
+          "subtitle": "Analista de Sistemas",
+          "description": "Facultad de IFES Neuquen ubicada en Neuquen Capital con materias como Tendencias en LLM e IA, Redes e interconexiones, Programacion avanzada, etc."
+        },
         "university": {
           "title": "Universidad del Comahue Neuquén",
           "subtitle": "Lic. Ciencias de la Computacion/Sistemas",
-          "description": "Facultad de Informatica - Ubicada en Neuquen Capital (Confluencia), 3er Año de la carrera. Materias realizadas como Estuctura de Datos, Programacion Orientada a Objetos, Probabilidad y Estadística, Diseño de Bases de Datos, etc."
+          "description": "Facultad de Informatica - Ubicada en Neuquen Capital (Confluencia), cursé hasta el 3er año de la carrera. Materias realizadas como Estuctura de Datos, Programacion Orientada a Objetos, Probabilidad y Estadística, Diseño de Bases de Datos, etc."
         },
         "cambridge": {
           "title": "Cambridge English",
@@ -383,19 +399,19 @@
           "description": "Egresado de Colegio Secundario CEM N°35 con titulo de Bachiller en Comunicación y Nuevos Medios."
         },
         "cursosOnline": {
-          "title": "Cursos Online",
-          "subtitle": "Udemy | Platzi | FreeCode Camp | Angular Docs | otros.",
-          "description": "Cursos online con certificados de - Full Stack Javascript Development - Front End Development - Git basic to advance - y otros."
+          "title": "Certificaciones y Cursos",
+          "subtitle": "AWS | Google Cloud | Udemy | Platzi | FreeCode Camp",
+          "description": "Certificaciones en AWS Cloud Practitioner, Google Cloud fundamentals, arquitectura de soluciones cloud, Full Stack JavaScript, Git avanzado, y otros cursos con certificado oficial."
         },
         "cursosUniversitarios": {
           "title": "Cursos universitarios",
           "subtitle": "Cursos de Terceros",
           "description": "Cursos promovidos por la Facultad de Informatica como Metodologías Agiles, Tacticas de desempeño en Algoritmos, Desarrollo e implementacion de Modelos Relacionales"
         },
-        "youtube": {
-          "title": "YouTube",
-          "subtitle": "Así es YouTube",
-          "description": "Gran parte de mi desarrollo se involucró en 200+ hs de contenido de desarrolladores en YouTube, fue mi gran profesor y tutor en mi formación como entusiasta y desarrollador"
+        "personalProjects": {
+          "title": "Proyectos Propios",
+          "subtitle": "IA · Visión Artificial · Gestión Empresarial",
+          "description": "Desarrollo de proyectos personales: sistemas con inteligencia artificial y LLMs, reconocimiento y escaneo facial con visión por computadora, plataformas de gestión empresarial, y otras soluciones tecnológicas de producción real."
         }
       }
     },
