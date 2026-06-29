@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Menu, X, Code2, Share2, AtSign, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from 'framer-motion'
@@ -25,6 +25,18 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const activeId = useScrollSpy(NAV_IDS)
 
+  // Drawer mobile: cerrar con Esc y bloquear el scroll de fondo mientras está abierto
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKeyDown = (e) => { if (e.key === 'Escape') setMenuOpen(false) }
+    document.addEventListener('keydown', onKeyDown)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   const scrollTo = (id) => {
     const el = document.getElementById(id)
     if (el) {
@@ -41,70 +53,32 @@ export default function Navbar() {
   return (
     <>
       {/* ── Desktop Navbar ── */}
-      <header
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 100,
-          borderBottom: '1px solid rgba(255,255,255,0.05)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
-          backgroundColor: 'rgba(5,8,22,0.8)',
-        }}
-      >
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 1.5rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          height: '4rem',
-        }}>
+      <header className="fixed top-0 inset-x-0 z-[100] border-b border-white/5 backdrop-blur-lg bg-[rgba(5,8,22,0.8)]">
+        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-16">
           {/* Logo */}
           <button
             onClick={() => scrollTo('home')}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+            className="bg-transparent border-0 cursor-pointer flex items-center gap-2"
           >
-            <div style={{
-              width: '2rem', height: '2rem',
-              background: 'var(--gradient-primary)',
-              borderRadius: '0.5rem',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
+            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <Code2 size={14} color="white" />
             </div>
-            <span style={{ fontWeight: 700, fontSize: '1.1rem', letterSpacing: '-0.02em', color: '#f1f5f9' }}>
+            <span className="font-bold text-[1.1rem] tracking-[-0.02em] text-ink">
               {t('navbar.logo')}
             </span>
           </button>
 
           {/* Desktop nav links */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }} className="hidden-mobile">
+          <nav className="hidden md:flex items-center gap-2">
             {NAV_LINKS.map(({ id, labelKey }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: '0.5rem 0.875rem',
-                  borderRadius: '0.5rem',
-                  fontSize: '0.875rem',
-                  fontWeight: 500,
-                  transition: 'all 0.2s',
-                  color: activeId === id ? '#a5b4fc' : '#64748b',
-                  backgroundColor: activeId === id ? 'rgba(99,102,241,0.12)' : 'transparent',
-                }}
-                onMouseEnter={e => {
-                  if (activeId !== id) e.target.style.color = '#94a3b8'
-                }}
-                onMouseLeave={e => {
-                  if (activeId !== id) e.target.style.color = '#64748b'
-                }}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer bg-transparent border-0 ${
+                  activeId === id
+                    ? 'text-iris bg-brand/[0.12]'
+                    : 'text-muted hover:text-slate-400'
+                }`}
               >
                 {t(labelKey)}
               </button>
@@ -112,31 +86,16 @@ export default function Navbar() {
           </nav>
 
           {/* Right side: lang + hamburger */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div className="flex items-center gap-3">
             {/* Language toggle */}
-            <div style={{
-              display: 'flex',
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '0.5rem',
-              overflow: 'hidden',
-            }}>
+            <div className="flex bg-white/[0.04] border border-white/[0.08] rounded-lg overflow-hidden">
               {['es', 'en'].map((lang) => (
                 <button
                   key={lang}
                   onClick={() => changeLang(lang)}
-                  style={{
-                    background: currentLang === lang ? 'rgba(99,102,241,0.3)' : 'transparent',
-                    border: 'none',
-                    cursor: 'pointer',
-                    padding: '0.375rem 0.75rem',
-                    fontSize: '0.75rem',
-                    fontWeight: 600,
-                    color: currentLang === lang ? '#a5b4fc' : '#64748b',
-                    transition: 'all 0.2s',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                  }}
+                  className={`px-5 py-2.5 text-base font-bold uppercase tracking-wider transition-colors cursor-pointer border-0 ${
+                    currentLang === lang ? 'bg-brand/30 text-iris' : 'bg-transparent text-muted'
+                  }`}
                 >
                   {lang}
                 </button>
@@ -146,17 +105,7 @@ export default function Navbar() {
             {/* Hamburger (mobile) */}
             <button
               onClick={() => setMenuOpen(true)}
-              style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '0.5rem',
-                padding: '0.5rem',
-                cursor: 'pointer',
-                color: '#94a3b8',
-                display: 'flex',
-                alignItems: 'center',
-              }}
-              className="show-mobile"
+              className="md:hidden bg-white/5 border border-white/[0.08] rounded-lg p-2 cursor-pointer text-slate-400 flex items-center"
               aria-label="Open menu"
             >
               <Menu size={18} />
@@ -175,12 +124,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMenuOpen(false)}
-              style={{
-                position: 'fixed', inset: 0,
-                background: 'rgba(5,8,22,0.8)',
-                backdropFilter: 'blur(4px)',
-                zIndex: 200,
-              }}
+              className="fixed inset-0 z-[200] backdrop-blur-sm bg-[rgba(5,8,22,0.8)]"
             />
             {/* Drawer */}
             <motion.aside
@@ -188,23 +132,14 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              style={{
-                position: 'fixed', top: 0, right: 0, bottom: 0,
-                width: 'min(340px, 85vw)',
-                background: '#0d1117',
-                borderLeft: '1px solid rgba(99,102,241,0.15)',
-                zIndex: 201,
-                display: 'flex',
-                flexDirection: 'column',
-                padding: '1.5rem',
-              }}
+              className="fixed top-0 right-0 bottom-0 z-[201] w-[min(340px,85vw)] bg-surface border-l border-brand/15 flex flex-col p-6"
             >
               {/* Drawer header */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-                <span style={{ fontWeight: 700, color: '#f1f5f9' }}>{t('navbar.logo')}</span>
+              <div className="flex justify-between items-center mb-8">
+                <span className="font-bold text-ink">{t('navbar.logo')}</span>
                 <button
                   onClick={() => setMenuOpen(false)}
-                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.5rem', padding: '0.5rem', cursor: 'pointer', color: '#94a3b8', display: 'flex' }}
+                  className="bg-white/5 border border-white/[0.08] rounded-lg p-2 cursor-pointer text-slate-400 flex"
                   aria-label="Close menu"
                 >
                   <X size={18} />
@@ -212,7 +147,7 @@ export default function Navbar() {
               </div>
 
               {/* Nav links */}
-              <nav style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              <nav className="flex-1 flex flex-col gap-1">
                 {NAV_LINKS.map(({ id, labelKey }, idx) => (
                   <motion.button
                     key={id}
@@ -220,18 +155,9 @@ export default function Navbar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 + 0.1 }}
                     onClick={() => scrollTo(id)}
-                    style={{
-                      background: activeId === id ? 'rgba(99,102,241,0.12)' : 'transparent',
-                      border: 'none',
-                      borderRadius: '0.5rem',
-                      padding: '0.875rem 1rem',
-                      textAlign: 'left',
-                      cursor: 'pointer',
-                      fontSize: '1rem',
-                      fontWeight: 500,
-                      color: activeId === id ? '#a5b4fc' : '#94a3b8',
-                      width: '100%',
-                    }}
+                    className={`border-0 rounded-lg px-4 py-3.5 text-left cursor-pointer text-base font-medium w-full ${
+                      activeId === id ? 'bg-brand/[0.12] text-iris' : 'bg-transparent text-slate-400'
+                    }`}
                   >
                     {t(labelKey)}
                   </motion.button>
@@ -239,27 +165,20 @@ export default function Navbar() {
               </nav>
 
               {/* Lang toggle in drawer */}
-              <div style={{ marginBottom: '1.5rem' }}>
-                <p style={{ fontSize: '0.75rem', color: '#475569', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+              <div className="mb-6">
+                <p className="text-xs text-faint mb-3 uppercase tracking-[0.08em]">
                   {t('navbar.findWithMe') || 'Language'}
                 </p>
-                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <div className="flex gap-2">
                   {['es', 'en'].map((lang) => (
                     <button
                       key={lang}
                       onClick={() => changeLang(lang)}
-                      style={{
-                        flex: 1,
-                        padding: '0.5rem',
-                        background: currentLang === lang ? 'rgba(99,102,241,0.2)' : 'transparent',
-                        border: `1px solid ${currentLang === lang ? 'rgba(99,102,241,0.4)' : 'rgba(255,255,255,0.08)'}`,
-                        borderRadius: '0.5rem',
-                        cursor: 'pointer',
-                        color: currentLang === lang ? '#a5b4fc' : '#64748b',
-                        fontWeight: 600,
-                        fontSize: '0.85rem',
-                        textTransform: 'uppercase',
-                      }}
+                      className={`flex-1 p-2 rounded-lg cursor-pointer font-semibold text-[0.85rem] uppercase border ${
+                        currentLang === lang
+                          ? 'bg-brand/20 border-brand/40 text-iris'
+                          : 'bg-transparent border-white/[0.08] text-muted'
+                      }`}
                     >
                       {lang}
                     </button>
@@ -268,7 +187,7 @@ export default function Navbar() {
               </div>
 
               {/* Social links */}
-              <div style={{ display: 'flex', gap: '0.75rem' }}>
+              <div className="flex gap-3">
                 {SOCIAL.map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
@@ -276,16 +195,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    style={{
-                      width: '2.5rem', height: '2.5rem',
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      borderRadius: '0.5rem',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: '#64748b',
-                      transition: 'all 0.2s',
-                      textDecoration: 'none',
-                    }}
+                    className="w-10 h-10 bg-white/[0.04] border border-white/[0.08] rounded-lg flex items-center justify-center text-muted hover:text-iris transition-colors no-underline"
                   >
                     <Icon size={16} />
                   </a>
@@ -295,17 +205,6 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
-
-      <style>{`
-        @media (min-width: 768px) {
-          .hidden-mobile { display: flex !important; }
-          .show-mobile { display: none !important; }
-        }
-        @media (max-width: 767px) {
-          .hidden-mobile { display: none !important; }
-          .show-mobile { display: flex !important; }
-        }
-      `}</style>
     </>
   )
 }

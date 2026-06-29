@@ -37,7 +37,13 @@
       "send": "Send",
       "emailRequired": "Email is required.",
       "emailInvalid": "Please enter a valid email address.",
+      "required": "This field is required.",
+      "sending": "Sending...",
       "alsoContact": "You can also contact me here:"
+    },
+    "toast": {
+      "success": "Message sent! I'll get back to you soon.",
+      "error": "Something went wrong. Try emailing me directly."
     }
   },
   "portfolio": {
@@ -91,9 +97,9 @@
         "category": "Unity",
         "title": "Tetris"
       },
-      "shojiMeguro": {
-        "category": "Fan Page",
-        "title": "Shoji Meguro Fan Page"
+      "espacioInce": {
+        "category": "Website",
+        "title": "Espacio INCE"
       },
       "botFinanciero": {
         "category": "AI & LLM",
@@ -167,11 +173,11 @@
         "secondText": "Developed in EJS, NodeJS",
         "noLinkText": "Not available. Private project."
       },
-      "shojiMeguro": {
-        "type": "Fan Page",
-        "title": "Shoji Meguro Fan Page",
-        "firstText": "Fan page dedicated to Japanese video game composer Shoji Meguro, featuring his discography, biography and multimedia content.",
-        "secondText": "Developed with HTML5, CSS3, JavaScript"
+      "espacioInce": {
+        "type": "Website",
+        "title": "Espacio INCE",
+        "firstText": "Website for Espacio INCE, a therapeutic accompaniment service. It showcases the services, approach and contact details with a clean, wellness-focused design.",
+        "secondText": "Built with React + Vite"
       },
       "botFinanciero": {
         "type": "Python / Telegram Bot",
@@ -182,7 +188,7 @@
     }
   },
   "experience": {
-    "subtitle": "More than 4 years of experience",
+    "subtitle": "More than 5 years of experience",
     "title": "My Experience",
     "viewMore": "VIEW MORE",
     "roleInCompany": "Role in the company:",
@@ -190,28 +196,56 @@
     "jobs": "Jobs:",
     "performances": "Performances:",
     "companies": {
-      "tecfield": {
-        "date": "2024-Present",
-        "title": "Tecfield SRL",
-        "subtitle": "Project Leader, Development and Statistical Analysis",
-        "description": "Statistical analysis, fleet management, HSE and Environment, operational logic for Oil & Gas companies",
+      "tecfieldLead": {
+        "date": "12/2024-Present",
+        "title": "Tecfield SRL · OPS SRL",
+        "subtitle": "Project Leader (DevOps) – Full Stack Developer",
+        "description": "Multi-module HSE web platform for Oil & Gas companies; AWS cloud architecture and technical team leadership.",
         "roles": {
-          "projectLeader": {
-            "title": "Project Leader",
-            "description": "Development and Management of Safety and Environmental Systems, I lead and head personnel for new developments and process automation with forms, interactive maps, statistical reports, validation and Documentation management.",
-            "technologies": "Technologies such as React, NodeJS, GRAPHQL, MongoDB, Docker, AWS, Python, among others."
+          "platform": {
+            "title": "Serverless HSE platform",
+            "description": "Designed and built a multi-module platform (Safety, Health, Road Safety); cut report generation time by ~60% through automation with Node.js and AWS Lambda.",
+            "technologies": "Node.js · AWS Lambda · React"
           },
-          "internalModel": {
-            "title": "Internal model and structure",
-            "description": "Design and structure of the data to be processed and worked on, I seek to implement information in a simple way so that it is moldable but solid at the same time."
+          "aws": {
+            "title": "AWS infrastructure",
+            "description": "Serverless architecture: Lambda + API Gateway for high-traffic endpoints, S3 for documents, RDS (PostgreSQL) with automatic backups via IAM Roles. Relational and non-relational DB design (PostgreSQL + MongoDB)."
           },
-          "statisticalAnalysis": {
-            "title": "Statistical Analysis",
-            "description": "Managerial and professional statistical charts and reports for importing and exporting data visible for sampling or information display."
+          "cicd": {
+            "title": "CI/CD",
+            "description": "GitHub Actions pipeline that reduced deploy time from 2 hours to 15 minutes, integrating automated tests and security validations."
           },
-          "formsAndData": {
-            "title": "Forms and Data Entry",
-            "description": "Creation of forms and data entries for loading information into the database and display in statistical charts. Data interconnection between different modules for complete integration."
+          "dashboards": {
+            "title": "Dashboards & data",
+            "description": "Dashboards built with React + Recharts consuming REST APIs deployed on EC2 with Nginx as reverse proxy; analysis of large volumes of statistical data."
+          },
+          "leadership": {
+            "title": "Team leadership",
+            "description": "Led a team of 4 developers: sprint definition, code reviews, delivery management and direct communication with the end client."
+          }
+        }
+      },
+      "tecfieldFs": {
+        "date": "03/2024-12/2024",
+        "title": "Tecfield SRL",
+        "subtitle": "Full Stack Developer",
+        "description": "Migration of a legacy system to a modern React + Node.js platform.",
+        "roles": {
+          "forms": {
+            "title": "Forms migration",
+            "description": "Developed and migrated complex dynamic forms from the legacy system to React + Node.js, reducing data-entry errors and renewing the product."
+          },
+          "auth": {
+            "title": "Auth & RBAC",
+            "description": "Integrated JWT authentication and role-based access control (RBAC) leveraging AWS IAM for permission management across cloud services."
+          },
+          "etl": {
+            "title": "Data migration (ETL)",
+            "description": "Designed ETL scripts in Node.js to migrate over 50,000 historical records to the new architecture with no loss of integrity."
+          },
+          "support": {
+            "title": "Support & continuous improvement",
+            "description": "Requirements gathering, support and continuous improvement of the main system in direct collaboration with the client and operations team."
           }
         }
       },

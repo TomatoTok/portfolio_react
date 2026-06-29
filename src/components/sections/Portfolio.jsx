@@ -1,10 +1,11 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Layers, ExternalLink, Code2, Play } from 'lucide-react'
-import ProjectModal from '../portfolio/ProjectModal'
-import VideoModal from '../portfolio/VideoModal'
 import { webProjects, gameProjects, cloudProjects, aiProjects } from '../../data/portfolio-data'
+
+const ProjectModal = lazy(() => import('../portfolio/ProjectModal'))
+const VideoModal = lazy(() => import('../portfolio/VideoModal'))
 
 const FILTER_IDS = ['all', 'web', 'games', 'ai']
 const CATEGORY_ORDER = ['ai', 'web', 'games']
@@ -148,7 +149,7 @@ export default function Portfolio() {
                   </h3>
                 </div>
                 <motion.div layout style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
-                  {items.map((project, i) => (
+                  {items.map((project) => (
                     <ProjectCard key={project.id} project={project} onClick={() => setOpenProject(project)} />
                   ))}
                 </motion.div>
@@ -172,23 +173,23 @@ export default function Portfolio() {
         )}
       </AnimatePresence>
 
-      {/* Modals */}
-      {allProjects.map(project =>
-        project.video ? (
-          <VideoModal
-            key={project.id}
-            project={project}
-            open={openProject?.id === project.id}
-            onOpenChange={(o) => !o && setOpenProject(null)}
-          />
-        ) : (
-          <ProjectModal
-            key={project.id}
-            project={project}
-            open={openProject?.id === project.id}
-            onOpenChange={(o) => !o && setOpenProject(null)}
-          />
-        )
+      {/* Modal (solo el proyecto abierto, cargado bajo demanda) */}
+      {openProject && (
+        <Suspense fallback={null}>
+          {openProject.video ? (
+            <VideoModal
+              project={openProject}
+              open
+              onOpenChange={(o) => !o && setOpenProject(null)}
+            />
+          ) : (
+            <ProjectModal
+              project={openProject}
+              open
+              onOpenChange={(o) => !o && setOpenProject(null)}
+            />
+          )}
+        </Suspense>
       )}
     </section>
   )

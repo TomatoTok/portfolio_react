@@ -5,20 +5,37 @@ import { Briefcase, ChevronDown, ChevronUp } from 'lucide-react'
 
 const experiences = [
   {
-    id: 'tecfield',
+    id: 'tecfieldLead',
     image: '/assets/images/portfolio/experience-04.webp',
-    period: '2024 — Present',
-    title: 'experience.companies.tecfield.title',
-    subtitle: 'experience.companies.tecfield.subtitle',
-    description: 'experience.companies.tecfield.description',
+    period: '12/2024 — Presente',
+    title: 'experience.companies.tecfieldLead.title',
+    subtitle: 'experience.companies.tecfieldLead.subtitle',
+    description: 'experience.companies.tecfieldLead.description',
     color: 'indigo',
     roles: [
-      { key: 'projectLeader',       titleKey: 'experience.companies.tecfield.roles.projectLeader.title',       descKey: 'experience.companies.tecfield.roles.projectLeader.description',       techKey: 'experience.companies.tecfield.roles.projectLeader.technologies' },
-      { key: 'internalModel',       titleKey: 'experience.companies.tecfield.roles.internalModel.title',       descKey: 'experience.companies.tecfield.roles.internalModel.description' },
-      { key: 'statisticalAnalysis', titleKey: 'experience.companies.tecfield.roles.statisticalAnalysis.title', descKey: 'experience.companies.tecfield.roles.statisticalAnalysis.description' },
-      { key: 'formsAndData',        titleKey: 'experience.companies.tecfield.roles.formsAndData.title',        descKey: 'experience.companies.tecfield.roles.formsAndData.description' },
+      { key: 'platform',   titleKey: 'experience.companies.tecfieldLead.roles.platform.title',   descKey: 'experience.companies.tecfieldLead.roles.platform.description',   techKey: 'experience.companies.tecfieldLead.roles.platform.technologies' },
+      { key: 'aws',        titleKey: 'experience.companies.tecfieldLead.roles.aws.title',        descKey: 'experience.companies.tecfieldLead.roles.aws.description' },
+      { key: 'cicd',       titleKey: 'experience.companies.tecfieldLead.roles.cicd.title',       descKey: 'experience.companies.tecfieldLead.roles.cicd.description' },
+      { key: 'dashboards', titleKey: 'experience.companies.tecfieldLead.roles.dashboards.title', descKey: 'experience.companies.tecfieldLead.roles.dashboards.description' },
+      { key: 'leadership', titleKey: 'experience.companies.tecfieldLead.roles.leadership.title', descKey: 'experience.companies.tecfieldLead.roles.leadership.description' },
     ],
-    tags: ['React', 'Node.js', 'MongoDB', 'AWS', 'Docker'],
+    tags: ['React', 'Node.js', 'AWS', 'PostgreSQL', 'MongoDB', 'Docker', 'CI/CD'],
+  },
+  {
+    id: 'tecfieldFs',
+    image: '/assets/images/portfolio/experience-04.webp',
+    period: '03/2024 — 12/2024',
+    title: 'experience.companies.tecfieldFs.title',
+    subtitle: 'experience.companies.tecfieldFs.subtitle',
+    description: 'experience.companies.tecfieldFs.description',
+    color: 'indigo',
+    roles: [
+      { key: 'forms',   titleKey: 'experience.companies.tecfieldFs.roles.forms.title',   descKey: 'experience.companies.tecfieldFs.roles.forms.description' },
+      { key: 'auth',    titleKey: 'experience.companies.tecfieldFs.roles.auth.title',    descKey: 'experience.companies.tecfieldFs.roles.auth.description' },
+      { key: 'etl',     titleKey: 'experience.companies.tecfieldFs.roles.etl.title',     descKey: 'experience.companies.tecfieldFs.roles.etl.description' },
+      { key: 'support', titleKey: 'experience.companies.tecfieldFs.roles.support.title', descKey: 'experience.companies.tecfieldFs.roles.support.description' },
+    ],
+    tags: ['React', 'Node.js', 'JWT', 'AWS IAM', 'ETL'],
   },
   {
     id: 'blister',
@@ -172,15 +189,11 @@ export default function Experience() {
         <div className="section-divider" />
       </motion.div>
 
-      <div style={{ display: 'grid', gap: '1.25rem' }} className="exp-grid">
+      <div className="flex flex-col gap-5">
         {experiences.map((exp, i) => (
           <ExperienceCard key={exp.id} exp={exp} delay={i * 0.1} />
         ))}
       </div>
-
-      <style>{`
-        @media (min-width: 768px) { .exp-grid { grid-template-columns: 1fr 1fr !important; } }
-      `}</style>
     </section>
   )
 }

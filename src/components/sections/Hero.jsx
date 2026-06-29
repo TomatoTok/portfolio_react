@@ -40,6 +40,8 @@ function useTypewriterSimple(words, speed = 80, deleteSpeed = 45, pause = 1800) 
     }
     timer = setTimeout(tick, 600)
     return () => clearTimeout(timer)
+    // El efecto arranca el typewriter una sola vez; los parámetros son estables.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return text
@@ -58,8 +60,8 @@ export default function Hero() {
 
   const isSpanish = i18n.language?.startsWith('es')
   const cvPath = isSpanish
-    ? '/assets/downloads/tomas_bascal_cv_spanish_2025.pdf'
-    : '/assets/downloads/tomas_bascal_cv_english_2025.pdf'
+    ? '/assets/downloads/tomas_bascal_cv_spanish.pdf'
+    : '/assets/downloads/tomas_bascal_cv_english.pdf'
   const cvLabel = isSpanish ? t('hero.downloadCVSP') : t('hero.downloadCVEN')
 
   const onSubmit = async (data) => {
@@ -70,11 +72,11 @@ export default function Hero() {
         body: JSON.stringify(data),
       })
       if (!res.ok) throw new Error('fail')
-      toast.success("Message sent! I'll get back to you soon.")
+      toast.success(t('contact.toast.success'))
       reset()
       setContactOpen(false)
     } catch {
-      toast.error('Something went wrong. Try emailing me directly.')
+      toast.error(t('contact.toast.error'))
     }
   }
 
@@ -185,7 +187,7 @@ export default function Hero() {
                               style={{ width: '100%', padding: '0.75rem 1rem', background: 'rgba(255,255,255,0.04)', border: `1px solid ${errors[name] ? 'rgba(239,68,68,0.4)' : 'rgba(255,255,255,0.08)'}`, borderRadius: '0.5rem', color: '#f1f5f9', fontSize: '0.9rem', outline: 'none', fontFamily: 'inherit' }}
                             />
                             {errors[name] && <p style={{ color: '#f87171', fontSize: '0.75rem', marginTop: '0.25rem' }}>
-                              {name === 'email' ? t('contact.form.emailInvalid') : 'Required'}
+                              {name === 'email' ? t('contact.form.emailInvalid') : t('contact.form.required')}
                             </p>}
                           </div>
                         ))}
@@ -195,7 +197,7 @@ export default function Hero() {
                         />
                         <button type="submit" className="btn-primary" disabled={isSubmitting} style={{ alignSelf: 'flex-start' }}>
                           <Send size={14} />
-                          {isSubmitting ? 'Sending...' : t('contact.form.send')}
+                          {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
                         </button>
                       </form>
                     </div>
@@ -215,7 +217,7 @@ export default function Hero() {
           }}>
             <div className="hero-photo-wrap">
               <img
-                src="/assets/images/slider/example.jpg"
+                src="/assets/images/slider/tomas-bascal.jpg"
                 alt="Tomas Bascal"
                 width="560"
                 height="460"

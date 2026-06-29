@@ -13,7 +13,7 @@ const halfTags = [...half, ...half]
 
 export default function TagCloud() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+    <div className="flex flex-col gap-3">
       <div className="tag-cloud-wrapper">
         <div className="tag-cloud-track">
           {allTags.map((tag, i) => (

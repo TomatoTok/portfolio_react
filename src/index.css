@@ -1,6 +1,27 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────
+   Tailwind theme tokens (generan utilidades:
+   text-ink, text-muted, bg-surface, etc.)
+───────────────────────────────────────── */
+@theme {
+  --color-night: #050816;
+  --color-surface: #0d1117;
+  --color-ink: #f1f5f9;
+  --color-slate: #cbd5e1;
+  --color-muted: #64748b;
+  --color-faint: #475569;
+  --color-dim: #334155;
+  --color-brand: #6366f1;
+  --color-iris: #a5b4fc;
+}
+
+/* Fondo con el gradiente de marca (reutilizable) */
+.bg-gradient-primary {
+  background: var(--gradient-primary);
+}
+
+/* ─────────────────────────────────────────
    Design Tokens
 ───────────────────────────────────────── */
 :root {
@@ -643,4 +664,21 @@ html, body {
 }
 @media (min-width: 1024px) {
   .blog-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ─────────────────────────────────────────
+   Reduced motion
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

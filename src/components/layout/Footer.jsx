@@ -40,27 +40,27 @@ export default function Footer() {
   }
 
   return (
-    <footer id="footer" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', backgroundColor: '#0d1117', marginTop: '4rem' }}>
+    <footer id="footer" className="border-t border-white/5 bg-surface mt-16">
       {/* Tag cloud strip */}
-      <div style={{ padding: '2rem 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+      <div className="py-8 border-b border-white/[0.04]">
         <TagCloud />
       </div>
 
       {/* Main footer content */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem 1.5rem', display: 'grid', gap: '2rem' }} className="footer-grid">
+      <div className="max-w-[1200px] mx-auto px-6 py-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
         {/* Brand column */}
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', marginBottom: '1rem' }}>
-            <div style={{ width: '2rem', height: '2rem', background: 'var(--gradient-primary)', borderRadius: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="flex items-center gap-2.5 mb-4">
+            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <Code2 size={14} color="white" />
             </div>
-            <span style={{ fontWeight: 700, color: '#f1f5f9' }}>{t('navbar.logo')}</span>
+            <span className="font-bold text-ink">{t('navbar.logo')}</span>
           </div>
-          <p style={{ color: '#475569', fontSize: '0.875rem', lineHeight: 1.7, maxWidth: '26ch', marginBottom: '1.25rem' }}>
+          <p className="text-faint text-sm leading-[1.7] max-w-[26ch] mb-5">
             Fullstack Developer & builder. Based in Neuquén, Argentina.
           </p>
           {/* Social icons */}
-          <div style={{ display: 'flex', gap: '0.625rem' }}>
+          <div className="flex gap-2.5">
             {SOCIAL.map(({ icon: Icon, href, label }) => (
               <motion.a
                 key={label}
@@ -69,9 +69,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label={label}
                 whileHover={{ y: -2, scale: 1.05 }}
-                style={{ width: '2.25rem', height: '2.25rem', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#475569', textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#a5b4fc'}
-                onMouseLeave={e => e.currentTarget.style.color = '#475569'}
+                className="w-9 h-9 bg-white/[0.04] border border-white/[0.08] rounded-lg flex items-center justify-center text-faint hover:text-iris no-underline transition-colors"
               >
                 <Icon size={15} />
               </motion.a>
@@ -81,15 +79,13 @@ export default function Footer() {
 
         {/* Navigation */}
         <div>
-          <h4 style={{ fontWeight: 700, fontSize: '0.8rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>Navigation</h4>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <h4 className="font-bold text-[0.8rem] text-muted uppercase tracking-widest mb-4">Navigation</h4>
+          <div className="flex flex-col gap-2">
             {NAV_LINKS.map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', color: '#475569', fontSize: '0.875rem', padding: 0, transition: 'color 0.2s' }}
-                onMouseEnter={e => e.target.style.color = '#a5b4fc'}
-                onMouseLeave={e => e.target.style.color = '#475569'}
+                className="bg-transparent border-0 p-0 text-left text-faint text-sm hover:text-iris transition-colors cursor-pointer"
               >
                 {label}
               </button>
@@ -99,46 +95,35 @@ export default function Footer() {
 
         {/* Resources */}
         <div>
-          <h4 style={{ fontWeight: 700, fontSize: '0.8rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>{t('footer.resources')}</h4>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <h4 className="font-bold text-[0.8rem] text-muted uppercase tracking-widest mb-4">{t('footer.resources')}</h4>
+          <div className="flex flex-col gap-2">
             {RESOURCES.map(({ label, href }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" style={{ color: '#475569', fontSize: '0.875rem', textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseEnter={e => e.target.style.color = '#a5b4fc'}
-                onMouseLeave={e => e.target.style.color = '#475569'}
-              >{label}</a>
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-faint text-sm no-underline hover:text-iris transition-colors">{label}</a>
             ))}
           </div>
         </div>
 
         {/* Developer stack */}
         <div>
-          <h4 style={{ fontWeight: 700, fontSize: '0.8rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>{t('footer.developer')}</h4>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <h4 className="font-bold text-[0.8rem] text-muted uppercase tracking-widest mb-4">{t('footer.developer')}</h4>
+          <div className="flex flex-col gap-2">
             {DEV_LINKS.map(({ label, href }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" style={{ color: '#475569', fontSize: '0.875rem', textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseEnter={e => e.target.style.color = '#a5b4fc'}
-                onMouseLeave={e => e.target.style.color = '#475569'}
-              >{label}</a>
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-faint text-sm no-underline hover:text-iris transition-colors">{label}</a>
             ))}
           </div>
         </div>
       </div>
 
       {/* Copyright bar */}
-      <div style={{ borderTop: '1px solid rgba(255,255,255,0.04)', padding: '1.25rem 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.375rem', flexWrap: 'wrap' }}>
-        <p style={{ color: '#334155', fontSize: '0.8rem', textAlign: 'center' }}>
+      <div className="border-t border-white/[0.04] px-6 py-5 flex items-center justify-center gap-1.5 flex-wrap">
+        <p className="text-dim text-[0.8rem] text-center">
           © {new Date().getFullYear()}. All rights reserved by{' '}
-          <span style={{ color: '#475569', fontWeight: 600 }}>Tomas Bascal.</span>
+          <span className="text-faint font-semibold">Tomas Bascal.</span>
           {' '}Built with{' '}
-          <Heart size={11} style={{ display: 'inline', color: '#6366f1', verticalAlign: 'middle' }} />
+          <Heart size={11} className="inline align-middle text-brand" />
           {' '}using React + Vite.
         </p>
       </div>
-
-      <style>{`
-        @media (min-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr !important; } }
-        @media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr !important; } }
-      `}</style>
     </footer>
   )
 }

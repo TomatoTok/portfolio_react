@@ -31,8 +31,8 @@ function Impresion3dContent() {
       <p>{t('blog.modals.impresion3d.intro')}</p>
       <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
         {[
-          { href: 'https://www.instagram.com/varicreaciones3d/', label: t('blog.modals.impresion3d.socialLinks.instagram'), sub: t('blog.modals.impresion3d.socialLinks.instagramSubtitle'), color: 'indigo' },
-        ].map(({ href, label, sub, color }) => (
+          { href: 'https://www.instagram.com/varicreaciones3d/', label: t('blog.modals.impresion3d.socialLinks.instagram'), sub: t('blog.modals.impresion3d.socialLinks.instagramSubtitle') },
+        ].map(({ href, label, sub }) => (
           <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem', padding: '0.875rem 1.25rem', textDecoration: 'none', flex: '1 1 180px' }}>
             <span style={{ fontWeight: 600, color: '#a5b4fc', fontSize: '0.875rem' }}>{label}</span>
             <span style={{ color: '#475569', fontSize: '0.775rem' }}>{sub}</span>

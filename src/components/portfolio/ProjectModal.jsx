@@ -118,7 +118,7 @@ export default function ProjectModal({ project, open, onOpenChange }) {
             )}
             {project.demo && (
               <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '0.625rem 1.25rem', fontSize: '0.85rem' }}>
-                <ExternalLink size={15} /> Live Demo
+                <ExternalLink size={15} /> Ver Sitio
               </a>
             )}
           </div>

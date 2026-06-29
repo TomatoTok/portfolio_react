@@ -37,7 +37,13 @@
       "send": "Enviar",
       "emailRequired": "El correo electrónico es requerido.",
       "emailInvalid": "Ingresa una dirección de correo electrónico válida.",
+      "required": "Este campo es requerido.",
+      "sending": "Enviando...",
       "alsoContact": "Tambien puedes contactarme por aquí:"
+    },
+    "toast": {
+      "success": "¡Mensaje enviado! Te responderé pronto.",
+      "error": "Algo salió mal. Probá escribiéndome directamente."
     }
   },
   "portfolio": {
@@ -91,9 +97,9 @@
         "category": "Unity",
         "title": "Tetris"
       },
-      "shojiMeguro": {
-        "category": "Fan Page",
-        "title": "Fan Page Shoji Meguro"
+      "espacioInce": {
+        "category": "Sitio Web",
+        "title": "Espacio INCE"
       },
       "botFinanciero": {
         "category": "IA & LLM",
@@ -167,11 +173,11 @@
         "secondText": "Desarrollado en EJS, NodeJS",
         "noLinkText": "No dispone. Proyecto privado."
       },
-      "shojiMeguro": {
-        "type": "Fan Page",
-        "title": "Fan Page Shoji Meguro",
-        "firstText": "Fan page dedicada al compositor japonés de videojuegos Shoji Meguro, con su discografía, biografía y contenido multimedia.",
-        "secondText": "Desarrollado en HTML5, CSS3, JavaScript"
+      "espacioInce": {
+        "type": "Sitio Web",
+        "title": "Espacio INCE",
+        "firstText": "Sitio web para Espacio INCE, un servicio de acompañamiento terapéutico. Presenta sus servicios, enfoque y datos de contacto con un diseño limpio centrado en el bienestar.",
+        "secondText": "Desarrollado con React + Vite"
       },
       "botFinanciero": {
         "type": "Python / Telegram Bot",
@@ -182,7 +188,7 @@
     }
   },
   "experience": {
-    "subtitle": "Más de 4 años de experiencia",
+    "subtitle": "Más de 5 años de experiencia",
     "title": "Mi Experiencia",
     "viewMore": "VER MÁS",
     "roleInCompany": "Rol en la empresa:",
@@ -190,28 +196,56 @@
     "jobs": "Trabajos:",
     "performances": "Desempeños:",
     "companies": {
-      "tecfield": {
-        "date": "2024-Presente",
-        "title": "Tecfield SRL",
-        "subtitle": "Lider de Proyectos, Desarrollo y  Analisis estadisticos",
-        "description": "Analisis estadistico, gestion de flota, SSA y Medio Ambiente, logica operativa de empresas del rubro de Oil & Gas",
+      "tecfieldLead": {
+        "date": "12/2024-Presente",
+        "title": "Tecfield SRL · OPS SRL",
+        "subtitle": "Líder de Proyectos (DevOps) – Full Stack Developer",
+        "description": "Plataforma web multi-módulo SSA para empresas de Oil & Gas; arquitectura cloud en AWS y liderazgo técnico del equipo.",
         "roles": {
-          "projectLeader": {
-            "title": "Lider de Proyectos",
-            "description": "Desarrollo y Gestion de Sistemas para Seguridad y Medio Ambiente, lidero y encabezo personal para los desarrollos nuevos y automatizacion de procesos con formularios, mapas interactivos, reportes estadisticos, validacion y gestion de Documentacion.",
-            "technologies": "Tecnologias como React, NodeJS, GRAPHQL, MongoDB, Docker, AWS, Python, entre otras."
+          "platform": {
+            "title": "Plataforma SSA serverless",
+            "description": "Diseño e implementación de plataforma multi-módulo (Seguridad, Salud, Seguridad Vial); reduje ~60% el tiempo de generación de reportes con automatización en Node.js y AWS Lambda.",
+            "technologies": "Node.js · AWS Lambda · React"
           },
-          "internalModel": {
-            "title": "Modelo y estructura interna",
-            "description": "Diseño y estructura de los datos a tratar y trabajar, busco implementar de manera sencilla la informacion para que sea moldeable pero solida a la vez."
+          "aws": {
+            "title": "Infraestructura AWS",
+            "description": "Arquitectura serverless: Lambda + API Gateway para endpoints de alto tráfico, S3 para documentos, RDS (PostgreSQL) con backups vía IAM Roles. Diseño de BD relacional y no-relacional (PostgreSQL + MongoDB)."
           },
-          "statisticalAnalysis": {
-            "title": "Analisis Estadistico",
-            "description": "Graficos y reportes estadisticos gerenciales y profesionales para importacion y exportacion de datos visibles para la muestra o exposicion de informacion."
+          "cicd": {
+            "title": "CI/CD",
+            "description": "Pipeline con GitHub Actions que redujo el deploy de 2 horas a 15 minutos, integrando tests automáticos y validaciones de seguridad."
           },
-          "formsAndData": {
-            "title": "Formularios e Ingresos de datos",
-            "description": "Creacion de formularios y entradas de datos para la carga de informacion en la base de datos y exposicion en graficos estadisticos. Interconexion de datos entre diferentes modulos para una integracion completa."
+          "dashboards": {
+            "title": "Dashboards y datos",
+            "description": "Dashboards con React + Recharts consumiendo APIs REST desplegadas en EC2 con Nginx como reverse proxy; análisis de grandes volúmenes de datos estadísticos."
+          },
+          "leadership": {
+            "title": "Liderazgo de equipo",
+            "description": "Lideré un equipo de 4 desarrolladores: definición de sprints, code reviews, gestión de entregas y comunicación directa con el cliente final."
+          }
+        }
+      },
+      "tecfieldFs": {
+        "date": "03/2024-12/2024",
+        "title": "Tecfield SRL",
+        "subtitle": "Desarrollador Full Stack",
+        "description": "Migración de un sistema legacy a una plataforma moderna React + Node.js.",
+        "roles": {
+          "forms": {
+            "title": "Migración de formularios",
+            "description": "Desarrollé y migré formularios dinámicos complejos desde el sistema legacy a React + Node.js, reduciendo errores de carga de datos y renovando el producto."
+          },
+          "auth": {
+            "title": "Autenticación y RBAC",
+            "description": "Integré autenticación con JWT y control de acceso por roles (RBAC) aprovechando AWS IAM para la gestión de permisos en servicios cloud."
+          },
+          "etl": {
+            "title": "Migración de datos (ETL)",
+            "description": "Diseñé scripts ETL en Node.js para migrar más de 50.000 registros históricos a la nueva arquitectura sin pérdida de integridad."
+          },
+          "support": {
+            "title": "Soporte y mejora continua",
+            "description": "Relevamiento, soporte y mejora continua del sistema principal en colaboración directa con el cliente y el equipo de operaciones."
           }
         }
       },

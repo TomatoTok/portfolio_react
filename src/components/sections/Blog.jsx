@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { BookOpen, Clock, Tag, ArrowRight } from 'lucide-react'
-import BlogModal from '../blog/BlogModal'
 import { blogPosts } from '../../data/portfolio-data'
+
+const BlogModal = lazy(() => import('../blog/BlogModal'))
 
 export default function Blog() {
   const { t } = useTranslation()
@@ -74,15 +75,16 @@ export default function Blog() {
         ))}
       </div>
 
-      {/* Modals */}
-      {blogPosts.map(post => (
-        <BlogModal
-          key={post.id}
-          post={post}
-          open={openPost?.id === post.id}
-          onOpenChange={(o) => !o && setOpenPost(null)}
-        />
-      ))}
+      {/* Modal (solo el post abierto, cargado bajo demanda) */}
+      {openPost && (
+        <Suspense fallback={null}>
+          <BlogModal
+            post={openPost}
+            open
+            onOpenChange={(o) => !o && setOpenPost(null)}
+          />
+        </Suspense>
+      )}
 
       <style>{`
         @media (min-width: 640px) { .blog-grid { grid-template-columns: repeat(2, 1fr) !important; } }
